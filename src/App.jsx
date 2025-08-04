@@ -1,20 +1,44 @@
-export default function App() {
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+// Layout หลัก// 
+import { Layout } from './components/Layout';
+
+// Views/Pages ต่างๆ ที่มีใน Web App//
+import { HomePage } from './views/HomePage';
+import { BrowsePage } from './views/BrowsePage';
+import { AboutPage } from './views/AboutPage';
+import { ContactPage } from './views/ContactPage';
+import { SignInPage } from './views/SignInPage';
+import { RegisterPage } from './views/RegisterPage';
+import { UserProfilePage } from './views/UserProfilePage';
+import { ShopPage } from './views/ShopPage';
+import { CartPage } from './views/CartPage';
+import { CheckoutPage } from './views/CheckoutPage';
+import { OrderConfirmationPage } from './views/OrderConfirmationPage';
+
+export const App = () => {
   return (
-    <div className="min-h-screen flex justify-center bg-blue-950">
-      <div className="p-6 gap-y-6 flex flex-col justify-start w-[80%] lg:w-[70%]">
-        <h1 className="w-full p-6 bg-amber-100 font-extrabold">
-          JSR Web App
-        </h1>
-        <section className="w-full p-5 bg-amber-100 flex">
-          <ul className="list-inside list-disc flex-1">
-            <span className="font-semibold">Tech Stack:</span>
-            <li>Vite</li>
-            <li>React</li>
-            <li>JavaScript</li>
-            <li>Tailwind</li>
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      {/* layout ที่เป็น wrapper ที่คุมทุก Page อยู่ */}
+      <Route path="/" element={<Layout />}>
+      <Route index={true} element={<HomePage />} />
+      <Route path="browse" element={<BrowsePage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="contact" element={<ContactPage />} />
+      <Route path="signin" element={<SignInPage />} />
+      <Route path="register" element={<RegisterPage />} />
+      <Route path="profile" element={<UserProfilePage />} />
+      <Route path="shop" element={<ShopPage />} />
+      <Route path="cart" element={<CartPage />} />
+      <Route path="checkout" element={<CheckoutPage />} />
+      <Route path="confirmation" element={<OrderConfirmationPage />} />
+      </Route>
+      
+    </Routes>
+    </BrowserRouter>
+  )
 }
+
+
