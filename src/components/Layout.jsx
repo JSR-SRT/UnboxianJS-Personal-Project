@@ -1,23 +1,29 @@
-import React from "react";
-// import outlet เข้ามาเพื่อแสดง Content ของเราในแต่ละ Route
+// Layout.jsx
+// ✅ Default export
+
 import { Outlet } from "react-router-dom";
-// Navbar components ที่อยู่บนสุด จะเอามาใช้กับทุก Page
-import { Navbar } from "./Navbar"
-// Footer components ที่อยู่ล่างสุด จะเอามาใช้กับทุก Page
-import { Footer } from "./Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { Toaster } from "sonner"; // ใช้ sonner เป็น toast notification
 
-
-export const Layout = () => {
+const Layout = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar ด้านบน */}
       <Navbar />
 
-{/* จุดที่จะแสดง Content ของเราในแต่ละ Page */}
-      <main className="flex-1 container mx-auto p-4">
+      {/* Main content */}
+      <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Outlet />
       </main>
-      
+
+      {/* Footer ด้านล่าง */}
       <Footer />
+
+      {/* Global Toaster (แจ้งเตือน) */}
+      <Toaster richColors position="top-right" />
     </div>
   );
 };
+
+export default Layout;

@@ -1,38 +1,60 @@
+// App.jsx
+// ✅ Default export
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
 
-// Layout หลัก//
-import { Layout } from "./components/Layout";
-
-// Views/Pages ต่างๆ ที่มีใน Web App//
+// Import views (ใช้ named export)
 import { HomePage } from "./views/HomePage";
-import { BrowsePage } from "./views/BrowsePage";
 import { AboutPage } from "./views/AboutPage";
 import { ContactPage } from "./views/ContactPage";
-import { SignInPage } from "./views/SignInPage";
-import { RegisterPage } from "./views/RegisterPage";
-import { UserProfilePage } from "./views/UserProfilePage";
-import { ShopPage } from "./views/ShopPage";
+import { SignInPage } from "./views/auth/SignInPage";
+import { RegisterPage } from "./views/auth/RegisterPage";
+import { ForgotPasswordPage } from "./views/auth/ForgotPasswordPage";
+import { ProfilePage } from "./views/profile/ProfilePage";
+import { ProfilePrivacy } from "./views/profile/ProfilePrivacy";
+import { ProfileDelete } from "./views/profile/ProfileDelete";
+import { ProfileUpdate } from "./views/profile/ProfileUpdate";
+import { Notification } from "./views/Notification";
+import { ProductPage } from "./views/ProductPage";
+import { ProductDetails } from "./views/ProductDetails";
 import { CartPage } from "./views/CartPage";
 import { CheckoutPage } from "./views/CheckoutPage";
 import { OrderConfirmationPage } from "./views/OrderConfirmationPage";
 
-// สร้าง router object
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, // Layout เป็น wrapper หลัก
+    element: <Layout />,
+    errorElement: (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
+        <h1 className="text-2xl md:text-4xl font-bold text-red-600">404 - Page Not Found</h1>
+        <p className="mt-2 text-gray-600">The page you are looking for does not exist.</p>
+      </div>
+    ),
     children: [
-      { index: true, element: <HomePage /> },
-      { path: "browse", element: <BrowsePage /> },
+      { path: "/", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
+
+      // Auth
       { path: "signin", element: <SignInPage /> },
       { path: "register", element: <RegisterPage /> },
-      { path: "profile", element: <UserProfilePage /> },
-      { path: "shop", element: <ShopPage /> },
+      { path: "forgot-password", element: <ForgotPasswordPage /> },
+
+      // Profile
+      { path: "profile", element: <ProfilePage /> },
+      { path: "profile/privacy", element: <ProfilePrivacy /> },
+      { path: "profile/delete", element: <ProfileDelete /> },
+      { path: "profile/update", element: <ProfileUpdate /> },
+
+      // Others
+      { path: "notifications", element: <Notification /> },
+      { path: "products", element: <ProductPage /> },
+      { path: "products/:id", element: <ProductDetails /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
-      { path: "confirmation", element: <OrderConfirmationPage /> },
+      { path: "order-confirmation", element: <OrderConfirmationPage /> },
     ],
   },
 ]);

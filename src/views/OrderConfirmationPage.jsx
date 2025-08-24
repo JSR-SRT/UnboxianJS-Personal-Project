@@ -5,3 +5,4 @@ export const OrderConfirmationPage = () => {
     <div>OrderConfirmationPage</div>
   )
 }
+
