@@ -3,7 +3,7 @@ export const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#fdf6ec] flex flex-col items-center justify-center text-center px-6">
       {/* Hero Text */}
-      <h1 className="text-[15vw] md:text-[10vw] lg:text-[8vw] font-extrabold tracking-tight leading-none relative">
+      <h1 className="text-[15vw] md:text-[10vw] lg:text-[10vw] font-extrabold tracking-tight leading-none relative">
         Unboxian
         <span className="relative inline-block align-baseline text-[1.1em]">
           J
@@ -19,14 +19,16 @@ export const HomePage = () => {
       </p>
 
       {/* Hashtags */}
-      <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm md:text-base text-gray-600">
+      <div className="mt-8 flex flex-wrap justify-center gap-4 text-5xl md:text-base text-gray-600">
         <span>#elmo</span>
         <span>#labubu</span>
         <span>#crybaby</span>
-        <span>#tokidoki</span>
+        <span>#cookiemonster</span>
         <span>#bearbrick</span>
         <span>#kaws</span>
-        <span>#streettoys</span>
+        <span>#sario</span>
+        <span>#Atmos</span>
+        <span>#Carnival</span>
       </div>
     </div>
   );
