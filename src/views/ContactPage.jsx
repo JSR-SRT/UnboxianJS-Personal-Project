@@ -1,6 +1,6 @@
 export const ContactPage = () => {
   return (
-    <section className="container mx-auto py-16 px-4">
+    <section className="bg-[#fdf6ec] w-full max-w-md shadow-lg rounded-xl p-8 container mx-auto py-16 px-4">
       <h2 className="text-3xl font-bold mb-6 text-center">Let’s get in touch</h2>
       <form className="max-w-lg mx-auto space-y-4">
         <input type="text" placeholder="Firstname" className="w-full p-3 border rounded-lg" />

@@ -1,32 +1,36 @@
 // src/views/HomePage.jsx
 export const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#fdf6ec] flex flex-col items-center justify-center text-center px-6">
+    <div className="min-h-screen bg-[#fdf6ec] flex flex-col items-center justify-center text-center px-6 py-2">
       {/* Hero Text */}
+          <img
+            src="/images/bear-opening-box.png"
+            alt="BrandLogo"
+            className="h-80 w-auto"
+          />
       <h1 className="text-[15vw] md:text-[10vw] lg:text-[10vw] font-extrabold tracking-tight leading-none relative">
         Unboxian
         <span className="relative inline-block align-baseline text-[1.1em]">
-          J
+          JS
         </span>
-        S
       </h1>
 
       {/* Subtitle */}
       <p className="mt-6 max-w-2xl text-gray-700 text-lg md:text-xl">
-        UnboxianJS brings together the culture of <span className="font-semibold">collectibles & street art</span>.  
-        Every piece is <span className="italic">authentic</span>, crafted with quality,  
-        and made to be shared with friends who appreciate <span className="uppercase">true originals</span>.
+        <strong>isn’t just about toys — it’s about culture.</strong> <br></br> Crossroads of street-inspired design, popular icons, modern aesthetics, cute vibes, and exceptional art toys that bring together the culture of <span className="font-semibold">collectibles & arts</span>.  
+        Every piece is <span className="italic">authentic</span>, meant to be shared with friends who appreciate <span className="uppercase">true originals</span>.
       </p>
 
       {/* Hashtags */}
-      <div className="mt-8 flex flex-wrap justify-center gap-4 text-5xl md:text-base text-gray-600">
-        <span>#elmo</span>
-        <span>#labubu</span>
-        <span>#crybaby</span>
-        <span>#cookiemonster</span>
-        <span>#bearbrick</span>
-        <span>#kaws</span>
-        <span>#sario</span>
+      <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm md:text-base text-gray-600">
+        <span>#Elmo</span>
+        <span>#Labubu</span>
+        <span>#Cry-Baby</span>
+        <span>#CookieMonster</span>
+        <span>#Be@rbrick</span>
+        <span>#Kaws</span>
+        <span>#Sanrio</span>
+        <span>#Molly</span>
         <span>#Atmos</span>
         <span>#Carnival</span>
       </div>

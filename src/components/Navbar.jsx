@@ -1,15 +1,38 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
-import { FaShoppingCart, FaUser } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaUser,
+  FaSignInAlt,
+  FaUserPlus,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isAuthenticated = false; // mock state, ต่อไปใช้ context/auth
+  const [isAuthenticated, setIsAuthenticated] = useState(true); // mock: ให้ถือว่าล็อกอินแล้ว
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // check ว่าหน้าไหนเป็น auth page
+  const isAuthPage = ["/signin", "/register", "/forgot-password"].includes(
+    location.pathname
+  );
+
+  // check ว่าอยู่หน้า Home ไหม
+  const isHomePage = location.pathname === "/";
+
+  // Function Logout
+  const handleLogout = () => {
+    setIsAuthenticated(false); // ล้าง state
+    localStorage.removeItem("token"); // ถ้าเก็บ token ไว้ ก็ลบออกด้วย
+    navigate("/"); // redirect ไปหน้า Home
+  };
 
   return (
     <nav className="w-full bg-[#fdf6ec] border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto flex justify-between items-center px-4 py-2">
+      {/* ใช้ px-6 + flex justify-between → content ชิดซ้าย/ขวา */}
+      <div className="flex justify-between items-center px-6 py-2">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
@@ -19,91 +42,81 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Tablet (md but below lg) */}
-        <div className="hidden md:flex lg:hidden items-center space-x-10">
-          <NavLink to="/shop" className="hover:text-gray-700">
-            Shop
-          </NavLink>
-          <NavLink to="/about" className="hover:text-gray-700">
-            About Us
-          </NavLink>
-          <NavLink to="/contact" className="hover:text-gray-700">
-            Contact
-          </NavLink>
-
-          {/* Cart & Profile */}
-          <NavLink to="/cart" className="hover:text-gray-700 text-xl">
-            <FaShoppingCart />
-          </NavLink>
-          <NavLink to="/profile" className="hover:text-gray-700 text-xl">
-            <FaUser />
-          </NavLink>
-
-          {/* Auth Button */}
-          {isAuthenticated ? (
-            <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
-              Logout
-            </button>
-          ) : (
+        {/* ✅ ถ้าเป็น auth page → แสดงเมนู Login / Signup */}
+        {isAuthPage ? (
+          <div className="flex items-center space-x-4">
             <Link
               to="/signin"
-              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              className="flex items-center text-sm hover:text-gray-700"
             >
-              Get Started
+              <FaSignInAlt className="mr-1" /> Login
             </Link>
-          )}
-        </div>
-
-        {/* Desktop (lg and up) */}
-        <div className="hidden xl:flex items-center space-x-12">
-          <NavLink to="/shop" className="hover:text-gray-700">
-            Shop
-          </NavLink>
-          <NavLink to="/about" className="hover:text-gray-700">
-            About Us
-          </NavLink>
-          <NavLink to="/contact" className="hover:text-gray-700">
-            Contact
-          </NavLink>
-
-          {/* ✅ SearchBar only on Desktop */}
-          <SearchBar />
-
-          {/* Cart & Profile */}
-          <NavLink to="/cart" className="hover:text-gray-700 text-xl">
-            <FaShoppingCart />
-          </NavLink>
-          <NavLink to="/profile" className="hover:text-gray-700 text-xl">
-            <FaUser />
-          </NavLink>
-
-          {/* Auth Button */}
-          {isAuthenticated ? (
-            <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
-              Logout
-            </button>
-          ) : (
             <Link
-              to="/signin"
-              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              to="/register"
+              className="flex items-center text-sm hover:text-gray-700"
             >
-              Get Started
+              <FaUserPlus className="mr-1" /> Signup
             </Link>
-          )}
-        </div>
+          </div>
+        ) : (
+          <>
+            {/* ✅ Tablet & Desktop เมนูหลัก */}
+            <div className="hidden md:flex items-center space-x-10">
+              <NavLink to="/shop" className="hover:text-gray-700">
+                Shop
+              </NavLink>
+              <NavLink to="/about" className="hover:text-gray-700">
+                About Us
+              </NavLink>
+              <NavLink to="/contact" className="hover:text-gray-700">
+                Contact
+              </NavLink>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-black"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          ☰
-        </button>
+              {/* SearchBar (เฉพาะ desktop) */}
+              <div className="hidden xl:block">
+                <SearchBar />
+              </div>
+
+              {/* Cart & Profile */}
+              <NavLink to="/cart" className="hover:text-gray-700 text-xl">
+                <FaShoppingCart />
+              </NavLink>
+              <NavLink to="/profile" className="hover:text-gray-700 text-xl">
+                <FaUser />
+              </NavLink>
+
+              {/* Home = Get Started | หน้าอื่น = Logout */}
+              {isHomePage ? (
+                <Link
+                  to="/signin"
+                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+                >
+                  Get Started
+                </Link>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 text-black"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              ☰
+            </button>
+          </>
+        )}
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-[#fdf6ec] px-4 py-5 flex flex-col items-center space-y-4">
+      {/* ✅ Mobile Menu (ถ้าไม่ใช่ auth page) */}
+      {!isAuthPage && isMenuOpen && (
+        <div className="md:hidden bg-[#fdf6ec] px-6 py-5 flex flex-col items-center space-y-4">
           <NavLink to="/shop" className="block">
             Shop
           </NavLink>
@@ -114,17 +127,21 @@ const Navbar = () => {
             Contact
           </NavLink>
 
-          {isAuthenticated ? (
-            <button className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
-              Logout
-            </button>
-          ) : (
+          {/* 🔥 Mobile: Home = Get Started | หน้าอื่น = Logout */}
+          {isHomePage ? (
             <Link
               to="/signin"
               className="block w-full text-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
             >
               Get Started
             </Link>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+            >
+              Logout
+            </button>
           )}
         </div>
       )}
@@ -133,4 +150,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

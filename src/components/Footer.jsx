@@ -1,7 +1,3 @@
-// src/components/landingpage/Footer.jsx
-// 🔹 Footer component (Default export)
-
-// src/components/landingpage/Footer.jsx
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
@@ -18,7 +14,7 @@ const Footer = () => {
             <h2 className="text-xl font-bold">UnboxianJS</h2>{" "}
             <p className="mt-2 text-sm">
               {" "}
-              Exclusive Art Toys & Collectibles for true street culture lovers.{" "}
+              Unbox with us. Collect with us. Share with us.{" "}
             </p>{" "}
           </div>{" "}
           {/* Quick Links */}{" "}
