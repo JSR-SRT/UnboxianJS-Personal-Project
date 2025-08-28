@@ -1,60 +1,61 @@
 // src/views/ForgotPasswordPage.jsx
-import React from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
-export function ForgotPasswordPage() {
-  const navigate = useNavigate()
+export const ForgotPasswordPage = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Logic for sending a password reset email goes here
+    console.log("Password reset link requested for:", email);
+
+    // Show a success message to the user
+    toast.success("Password reset link sent to your email!");
+
+    // Clear the email field
+    setEmail("");
+  };
 
   return (
-    <div className="bg-[url('/bg-register.jpg')] bg-cover bg-center flex items-center justify-center min-h-screen">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+    <div className="min-h-screen flex flex-col">
+      {/* Forgot Password Form */}
+      <section className="flex flex-1 items-center justify-center px-4">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-[#fdf6ec] w-full max-w-md shadow-lg rounded-xl p-8"
+        >
+          <h2 className="text-2xl font-bold mb-6 text-center">Forgot Password?</h2>
 
-      <div className="relative bg-[#F8F6F2] text-[#3F3C38] p-8 rounded-2xl shadow-2xl w-full max-w-md">
-        {/* Title */}
-        <h2 className="text-3xl font-bold text-center mb-3">Reset Your Password</h2>
-        <p className="text-center mb-6 text-base text-gray-600">
-          Forgot your password? <br />
-          Enter your email to reset. <br />
-          We’ll send you a reset link.
-        </p>
+          {/* Email */}
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full mb-4 p-3 border rounded-lg"
+            required
+          />
 
-        {/* Form */}
-        <form>
-          <div className="mb-5">
-            <label htmlFor="email" className="block text-lg font-semibold mb-2">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              placeholder="example@email.com"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#A69C8E]"
-            />
-          </div>
+          {/* Submit */}
+          <button
+            type="submit"
+            className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-gray-800"
+          >
+            Send Reset Link
+          </button>
 
-          <div className="flex gap-4">
-            {/* Back button → link ไปหน้า SignInPage */}
-            <button
-              type="button"
-              className="w-1/3 bg-[#3F3C38] text-white text-sm font-semibold py-2 rounded-lg hover:bg-[#2e2b28] transition"
-              onClick={() => navigate("/signin")}
-            >
-              Back
-            </button>
-
-            {/* Submit button */}
-            <button
-              type="submit"
-              className="w-2/3 bg-[#D4A475] text-white text-sm font-semibold py-2 rounded-lg hover:bg-[#b47d49] transition"
-            >
-              Reset Password
-            </button>
-          </div>
+          {/* Back to Login Link */}
+          <p className="mt-4 text-center text-sm">
+            Remember your password?{" "}
+            <Link to="/signin" className="text-black underline">
+              Login
+            </Link>
+          </p>
         </form>
-      </div>
+      </section>
     </div>
-  )
-}
+  );
+};
 

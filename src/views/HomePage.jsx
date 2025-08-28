@@ -1,13 +1,14 @@
 // src/views/HomePage.jsx
 export const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#fdf6ec] flex flex-col items-center justify-center text-center px-6 py-2">
+    <div className="min-h-screen bg-[#fdf6ec] drop-shadow-lg rounded-xl flex flex-col items-center justify-center text-center px-6 py-2">
       {/* Hero Text */}
           <img
             src="/images/bear-opening-box.png"
             alt="BrandLogo"
-            className="h-80 w-auto"
+            className="h-80 w-auto rounded-xl opacity-90 drop-shadow-lg"
           />
+          <br></br> <br></br>
       <h1 className="text-[15vw] md:text-[10vw] lg:text-[10vw] font-extrabold tracking-tight leading-none relative">
         Unboxian
         <span className="relative inline-block align-baseline text-[1.1em]">
