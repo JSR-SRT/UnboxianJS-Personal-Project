@@ -1,14 +1,17 @@
 // Layout.jsx
 // ✅ Default export
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Toaster } from "sonner"; // ใช้ sonner เป็น toast notification
 
 const Layout = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className={`flex flex-col min-h-screen ${isHomePage ? 'bg-[#fdf6ec]' : 'bg-[#fdf6ec]'}`}>
       {/* Navbar ด้านบน */}
       <Navbar />
 

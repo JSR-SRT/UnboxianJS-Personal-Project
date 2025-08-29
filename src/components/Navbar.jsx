@@ -36,7 +36,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
-            src="/images/unboxianJS-logo.png"
+            src="/images/0-unboxianJS-logo.png"
             alt="BrandLogo"
             className="h-10 w-auto"
           />
@@ -62,7 +62,7 @@ const Navbar = () => {
           <>
             {/* ✅ Tablet & Desktop เมนูหลัก */}
             <div className="hidden md:flex items-center space-x-10">
-              <NavLink to="/shop" className="hover:text-gray-700">
+              <NavLink to="/products" className="hover:text-gray-700">
                 Shop
               </NavLink>
               <NavLink to="/about" className="hover:text-gray-700">
@@ -117,7 +117,7 @@ const Navbar = () => {
       {/* ✅ Mobile Menu (ถ้าไม่ใช่ auth page) */}
       {!isAuthPage && isMenuOpen && (
         <div className="md:hidden bg-[#fdf6ec] px-6 py-5 flex flex-col items-center space-y-4">
-          <NavLink to="/shop" className="block">
+          <NavLink to="/products" className="block">
             Shop
           </NavLink>
           <NavLink to="/about" className="block">

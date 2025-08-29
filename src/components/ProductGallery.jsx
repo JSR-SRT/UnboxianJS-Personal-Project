@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react"
+import { ProductCard } from "./ProductCard"
 
-export const ProductGallery = () => {
+export const ProductGallery = ({ products, onSelect }) => {
   return (
-    <div>ProductGallery</div>
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      {products.map((p) => (
+        <ProductCard key={p.id} product={p} onSelect={onSelect} />
+      ))}
+    </div>
   )
 }

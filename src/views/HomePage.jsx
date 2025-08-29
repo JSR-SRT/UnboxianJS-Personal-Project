@@ -4,7 +4,7 @@ export const HomePage = () => {
     <div className="min-h-screen bg-[#fdf6ec] drop-shadow-lg rounded-xl flex flex-col items-center justify-center text-center px-6 py-2">
       {/* Hero Text */}
           <img
-            src="/images/bear-opening-box.png"
+            src="/images/0-bear-opening-box.png"
             alt="BrandLogo"
             className="h-80 w-auto rounded-xl opacity-90 drop-shadow-lg"
           />
