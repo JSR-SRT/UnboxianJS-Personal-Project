@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card";
 
 // Array of dummy images for the product
 const dummyImages = [
-  "/images/product-detail-1.png",
-  "/images/product-detail-2.png",
-  "/images/product-detail-3.png",
+  "/images/b1-atmos-coke-own.png",
+  "/images/b1-atmos-coke-own.png",
+  "/images/b1-atmos-coke-own.png",
 ];
 
 export const ProductDetails = () => {

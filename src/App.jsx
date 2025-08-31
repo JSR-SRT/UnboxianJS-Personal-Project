@@ -1,6 +1,3 @@
-// App.jsx
-// ✅ Default export
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 
@@ -15,7 +12,7 @@ import { ProfilePage } from "./views/profile/ProfilePage";
 import { ProfilePrivacy } from "./views/profile/ProfilePrivacy";
 import { ProfileDelete } from "./views/profile/ProfileDelete";
 import { ProfileUpdate } from "./views/profile/ProfileUpdate";
-import { Notification } from "./views/Notification";
+import { Notification } from "./views/profile/Notification";
 import { ProductPage } from "./views/ProductPage";
 import { ProductDetails } from "./views/ProductDetails";
 import { CartPage } from "./views/CartPage";
@@ -28,8 +25,12 @@ const router = createBrowserRouter([
     element: <Layout />,
     errorElement: (
       <div className="flex flex-col items-center justify-center min-h-screen text-center p-6">
-        <h1 className="text-2xl md:text-4xl font-bold text-red-600">404 - Page Not Found</h1>
-        <p className="mt-2 text-gray-600">The page you are looking for does not exist.</p>
+        <h1 className="text-2xl md:text-4xl font-bold text-red-600">
+          404 - Page Not Found
+        </h1>
+        <p className="mt-2 text-gray-600">
+          The page you are looking for does not exist.
+        </p>
       </div>
     ),
     children: [
@@ -47,9 +48,9 @@ const router = createBrowserRouter([
       { path: "profile/privacy", element: <ProfilePrivacy /> },
       { path: "profile/delete", element: <ProfileDelete /> },
       { path: "profile/update", element: <ProfileUpdate /> },
+      { path: "profile/notification", element: <Notification /> },
 
       // Others
-      { path: "notifications", element: <Notification /> },
       { path: "products", element: <ProductPage /> },
       { path: "products/:id", element: <ProductDetails /> },
       { path: "cart", element: <CartPage /> },
