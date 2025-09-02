@@ -29,7 +29,6 @@ export const HomePage = () => {
         <span>#Cry-Baby</span>
         <span>#CookieMonster</span>
         <span>#Be@rbrick</span>
-        <span>#Kaws</span>
         <span>#Sanrio</span>
         <span>#Molly</span>
         <span>#Atmos</span>

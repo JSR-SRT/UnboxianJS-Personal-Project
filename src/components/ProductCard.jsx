@@ -17,7 +17,7 @@ export const ProductCard = ({ product, onSelect }) => {
         
         {/* Image */}
         <img
-          src={product.image}
+          src={product.mainImage}
           alt={product.name}
           className="w-full h-full object-contain p-4"
         />
