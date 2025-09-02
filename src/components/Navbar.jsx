@@ -42,7 +42,7 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* ✅ ถ้าเป็น auth page → แสดงเมนู Login / Signup */}
+        {/* ถ้าเป็น auth page → แสดงเมนู Login / Signup */}
         {isAuthPage ? (
           <div className="flex items-center space-x-4">
             <Link
@@ -114,7 +114,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* ✅ Mobile Menu (ถ้าไม่ใช่ auth page) */}
+      {/* Mobile Menu (ถ้าไม่ใช่ auth page) */}
       {!isAuthPage && isMenuOpen && (
         <div className="md:hidden bg-[#fdf6ec] px-6 py-5 flex flex-col items-center space-y-4">
           <NavLink to="/products" className="block">
@@ -126,8 +126,14 @@ const Navbar = () => {
           <NavLink to="/contact" className="block">
             Contact
           </NavLink>
+          <NavLink to="/cart" className="block">
+            Cart
+          </NavLink>
+          <NavLink to="/profile" className="block">
+            Profile
+          </NavLink>
 
-          {/* 🔥 Mobile: Home = Get Started | หน้าอื่น = Logout */}
+          {/* Mobile: Home = Get Started | หน้าอื่น = Logout */}
           {isHomePage ? (
             <Link
               to="/signin"

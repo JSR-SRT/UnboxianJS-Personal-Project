@@ -31,7 +31,7 @@ export const ProductCard = ({ product, onSelect }) => {
         </div>
         {/* Right: Price */}
         <div className="bg-black text-[#fdf6ec] text-xs md:text-sm font-semibold px-2 py-2 min-w-[60px] text-center">
-          {product.price}
+          {`฿ ${Number(product.price).toLocaleString()}`} 
         </div>
       </CardFooter>
     </Card>

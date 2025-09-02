@@ -3,10 +3,12 @@ import { useLocation, Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 
 export const ProductDetails = () => {
   const location = useLocation();
   const { product } = location.state || {};
+  const { addToCart } = useCart();
 
   if (!product) {
     return (
@@ -20,6 +22,7 @@ export const ProductDetails = () => {
   }
 
   const handleAddToCart = () => {
+    addToCart(product);
     console.log("Adding to cart:", product.name);
     toast.success(`${product.name} has been added to your cart.`);
   };
@@ -67,13 +70,20 @@ export const ProductDetails = () => {
           <p className="text-gray-700">{product.description}</p>
         </div>
 
-        {/* Add to Cart */}
-        <Button
-          onClick={handleAddToCart}
-          className="w-full bg-black text-[#fdf6ec] py-6 rounded-lg hover:bg-gray-800 text-lg font-semibold"
-        >
-          Add to Cart
-        </Button>
+        <div className="flex flex-col space-y-4">
+          <Button
+            onClick={handleAddToCart}
+            className="w-full bg-black text-[#fdf6ec] py-6 rounded-lg hover:bg-gray-800 text-lg font-semibold"
+          >
+            Add to Cart
+          </Button>
+
+          <Link to="/products">
+            <button className="w-full bg-black text-[#fdf6ec] py-6 rounded-lg hover:bg-gray-800 text-lg font-semibold">
+              Back to Continue Shopping
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
