@@ -1,113 +1,160 @@
-import React from "react"
-import { useLocation, useNavigate } from "react-router-dom"
-import { Button } from "@/components/ui/button"
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export const OrderConfirmationPage = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const orderData = location.state?.orderData
+  const location = useLocation();
+  const orderData = location.state?.orderData;
 
   if (!orderData) {
     return (
-      <div className="p-6 bg-[#F8F6F2] min-h-screen flex items-center justify-center text-[#3F3C38]">
+      <div className="p-6 bg-[#fdf6ec] min-h-screen flex items-center justify-center text-black">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold">No order data found</h2>
-          <Button className="mt-4 bg-[#3F3C38] text-[#F8F6F2]" onClick={() => navigate("/")}>
-            Back to Home
+          <h2 className="text-2xl font-semibold">No order data found.</h2>
+          <Button asChild className="mt-4 bg-black text-[#fdf6ec]">
+            <Link to="/">Back to Home</Link>
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
-  const { orderId, customer, cart, subtotal, shipping, total, payment } = orderData
+  const { customer, cart, subtotal, shipping, total, id } = orderData;
 
   return (
-    <div className="p-6 bg-[#F8F6F2] min-h-screen text-[#3F3C38] flex justify-center">
-      <div className="w-full max-w-5xl bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Left Section */}
-        <div>
-          <h2 className="text-xl font-bold mb-2">Checkout</h2>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-6 rounded-full border-2 border-[#3F3C38] flex items-center justify-center">
-              ✓
-            </div>
-            <p className="text-lg font-medium">
-              Order #{orderId} – <span className="font-semibold">Thank you {customer.name}!</span>
-            </p>
-          </div>
-
-          {/* Tips / Message */}
-          <div className="p-4 border border-gray-200 rounded mb-4">
-            <p className="font-medium">Want some additional tips?</p>
-            <p className="text-sm text-gray-600">
-              Join our Facebook group to get tips and resources from our community:{" "}
-              <a href="#" className="text-blue-600 underline">Join the Group</a>
-            </p>
-          </div>
-
-          {/* Customer Info */}
-          <div className="space-y-3 text-sm">
-            <div>
-              <p className="font-semibold">Contact</p>
-              <p>{customer.email}</p>
-            </div>
-            <div>
-              <p className="font-semibold">Address</p>
-              <p>
-                {customer.name}<br />
-                {customer.address}<br />
-                {customer.city}, {customer.country} {customer.postcode}
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold">Payment</p>
-              <p>{payment}</p>
-            </div>
-          </div>
-
-          <Button 
-            className="mt-6 bg-[#3F3C38] text-[#F8F6F2] hover:bg-black"
-            onClick={() => navigate("/")}
-          >
-            Continue Shopping
-          </Button>
+    <div className="min-h-screen p-4 md:p-10 text-black flex justify-center bg-[#fdf6ec]">
+      <div className="w-full max-w-5xl">
+        <div className="text-center mb-10">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-black">
+            Thank You!
+          </h1>
+          <br></br>
+          <p className="text-lg md:text-xl text-stone-800 mt-2">
+            Your order has been successfully placed. We appreciate your purchase
+            and hope you love your new collectibles.
+          </p>
+          <p className="text-sm text-stone-700 mt-1">
+            An order confirmation has been sent to your email.
+          </p>
+          <br></br>
+          <p className="font-bold text-xl text-stone-800">ORDER ID</p>
+          <p className="font-bold text-xl text-stone-800">#{id}</p>
         </div>
 
-        {/* Right Section - Order Summary */}
-        <div className="border-l border-gray-200 pl-6">
-          <h3 className="text-lg font-semibold mb-4">Your Order</h3>
-          <div className="space-y-3">
-            {cart.map((item, idx) => (
-              <div key={idx} className="flex justify-between items-center border-b pb-2">
-                <div className="flex items-center gap-3">
-                  <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
-                  <span>{item.name} × {item.quantity}</span>
+        <Card className="p-6 bg-cream rounded-xl shadow-lg">
+          <CardContent className="p-0 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 📝 Customer and Shipping Info */}
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-xl font-bold">CUSTOMER INFORMATION</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="font-semibold text-sm text-gray-600">
+                      FULL NAME
+                    </p>
+                    <p className="text-black">
+                      {customer.firstName} {customer.lastName}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-gray-600">PHONE</p>
+                    <p className="text-black">{customer.phone}</p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <p className="font-semibold text-sm text-gray-600">EMAIL</p>
+                    <p className="text-black">{customer.email}</p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <p className="font-semibold text-sm text-gray-600">
+                      SHIPPING ADDRESS
+                    </p>
+                    <p className="text-black">{customer.deliveryAddress}</p>
+                  </div>
                 </div>
-                <span>£{(item.price * item.quantity).toFixed(2)}</span>
               </div>
-            ))}
-          </div>
 
-          {/* Price Summary */}
-          <div className="mt-4 text-sm space-y-2">
-            <div className="flex justify-between">
-              <span>Subtotal</span>
-              <span>£{subtotal.toFixed(2)}</span>
+              <Separator className="bg-gray-300" />
+
+              <div className="space-y-2">
+                <h2 className="text-xl font-bold">PAYMENT DETAILS</h2>
+                <p>
+                  <span className="font-semibold">Payment Method:</span>{" "}
+                  {customer.paymentMethod === "card"
+                    ? "Credit Card"
+                    : customer.paymentMethod === "bank"
+                    ? "Bank Transfer"
+                    : customer.paymentMethod}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Button
+                  asChild
+                  className="w-full bg-black text-[#fdf6ec] py-3 font-semibold hover:bg-stone-400 hover:text-black"
+                >
+                  <Link to="/profile/my-orders" state={{ orderData }}>
+                    TRACK YOUR ORDER
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="w-full border border-black bg-[#fdf6ec] text-black py-3 font-semibold hover:bg-stone-400"
+                >
+                  <Link to="/products">CONTINUE SHOPPING</Link>
+                </Button>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span>Shipping</span>
-              <span>{shipping}</span>
+
+            {/* 🛒 Order Summary */}
+            <div className="lg:border-l lg:border-gray-200 lg:pl-8 space-y-4">
+              <h2 className="text-xl font-bold mb-4">ORDER SUMMARY</h2>
+              {cart.map((item) => (
+                <div
+                  key={item._id}
+                  className="flex items-start justify-between border-b pb-4"
+                >
+                  <div className="flex space-x-4">
+                    <img
+                      src={item.mainImage}
+                      alt={item.name}
+                      className="w-20 h-20 object-contain rounded-md"
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-sm font-semibold">{item.name}</p>
+                      <p className="text-xs text-gray-500">Qty: {item.qty}</p>
+                    </div>
+                  </div>
+                  <p className="font-semibold">
+                    ฿{Number(item.price).toLocaleString()}
+                  </p>
+                </div>
+              ))}
+
+              <div className="space-y-2 pt-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Subtotal</span>
+                  <span className="font-medium">
+                    ฿{subtotal.toLocaleString()}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Shipping</span>
+                  <span className="font-medium">
+                    ฿{shipping.toLocaleString()}
+                  </span>
+                </div>
+                <Separator className="bg-black my-2" />
+                <div className="flex justify-between text-base font-bold">
+                  <span>TOTAL</span>
+                  <span>฿{total.toLocaleString()}</span>
+                </div>
+              </div>
             </div>
-            <div className="flex justify-between font-bold text-base border-t pt-2">
-              <span>Total</span>
-              <span>£{total.toFixed(2)}</span>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
-  )
-}
-
-
+  );
+};

@@ -28,9 +28,10 @@ export const HomePage = () => {
         <span>#Labubu</span>
         <span>#Cry-Baby</span>
         <span>#CookieMonster</span>
-        <span>#Be@rbrick</span>
-        <span>#Sanrio</span>
+        <span>#Minions</span>
         <span>#Molly</span>
+        <span>#Garfield</span>
+        <span>#CheerBear</span>
         <span>#Atmos</span>
         <span>#Carnival</span>
       </div>

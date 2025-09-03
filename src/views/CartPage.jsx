@@ -7,7 +7,7 @@ export const CartPage = () => {
   const grandTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
 
   return (
-    <div className="min-h-screen bg-[#f8f6f2] text-black px-4 py-6 md:px-10 lg:px-20">
+    <div className="min-h-screen bg-stone-100 text-black px-4 py-6 md:px-10 lg:px-20">
       <h1 className="text-2xl font-bold mb-6">YOUR CART ({cartItems.length})</h1>
 
       {/* รายการสินค้า */}
@@ -28,14 +28,14 @@ export const CartPage = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => updateQty(item._id, "decrease")}
-                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-gray-200"
+                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-stone-200"
               >
                 -
               </button>
               <span>{item.qty}</span>
               <button
                 onClick={() => updateQty(item._id, "increase")}
-                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-gray-200"
+                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-stone-200"
               >
                 +
               </button>
@@ -55,7 +55,7 @@ export const CartPage = () => {
           className={cartItems.length === 0 ? "pointer-events-none opacity-50" : ""}
         >
           <button
-            className="w-full bg-black text-white py-3 font-semibold hover:bg-gray-800"
+            className="w-full bg-black text-[#fdf6ec] py-3 font-semibold hover:bg-stone-400 hover:text-black"
             disabled={cartItems.length === 0}
           >
             PROCEED TO CHECKOUT
@@ -63,7 +63,7 @@ export const CartPage = () => {
         </Link>
         
         <Link to="/products">
-          <button className="w-full border border-black py-3 font-semibold hover:bg-gray-100">
+          <button className="w-full border bg-[#fdf6ec] border-black py-3 font-semibold hover:bg-stone-400">
             CONTINUE SHOPPING
           </button>
         </Link>

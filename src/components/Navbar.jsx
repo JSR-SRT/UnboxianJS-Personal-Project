@@ -47,13 +47,13 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <Link
               to="/signin"
-              className="flex items-center text-sm hover:text-gray-700"
+              className="flex items-center text-sm hover:text-stone-700"
             >
               <FaSignInAlt className="mr-1" /> Login
             </Link>
             <Link
               to="/register"
-              className="flex items-center text-sm hover:text-gray-700"
+              className="flex items-center text-sm hover:text-stone-700"
             >
               <FaUserPlus className="mr-1" /> Signup
             </Link>
@@ -62,13 +62,13 @@ const Navbar = () => {
           <>
             {/* ✅ Tablet & Desktop เมนูหลัก */}
             <div className="hidden md:flex items-center space-x-10">
-              <NavLink to="/products" className="hover:text-gray-700">
+              <NavLink to="/products" className="hover:text-stone-700">
                 Shop
               </NavLink>
-              <NavLink to="/about" className="hover:text-gray-700">
+              <NavLink to="/about" className="hover:text-stone-700">
                 About Us
               </NavLink>
-              <NavLink to="/contact" className="hover:text-gray-700">
+              <NavLink to="/contact" className="hover:text-stone-700">
                 Contact
               </NavLink>
 
@@ -78,10 +78,10 @@ const Navbar = () => {
               </div>
 
               {/* Cart & Profile */}
-              <NavLink to="/cart" className="hover:text-gray-700 text-xl">
+              <NavLink to="/cart" className="hover:text-stone-700 text-xl">
                 <FaShoppingCart />
               </NavLink>
-              <NavLink to="/profile" className="hover:text-gray-700 text-xl">
+              <NavLink to="/profile" className="hover:text-stone-700 text-xl">
                 <FaUser />
               </NavLink>
 
@@ -89,14 +89,14 @@ const Navbar = () => {
               {isHomePage ? (
                 <Link
                   to="/signin"
-                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+                  className="px-4 py-2 rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
                 >
                   Get Started
                 </Link>
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+                  className="px-4 py-2 rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
                 >
                   Logout
                 </button>
@@ -137,14 +137,14 @@ const Navbar = () => {
           {isHomePage ? (
             <Link
               to="/signin"
-              className="block w-full text-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              className="w-full px-4 py-2 text-center rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
             >
               Get Started
             </Link>
           ) : (
             <button
               onClick={handleLogout}
-              className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              className="w-full px-4 py-2 rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
             >
               Logout
             </button>

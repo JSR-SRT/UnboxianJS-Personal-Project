@@ -66,23 +66,26 @@ export const ProductDetails = () => {
 
         {/* Description */}
         <div className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">Description</h2>
+          <h2 className="text-xl font-bold mb-2">Description</h2>
           <p className="text-gray-700">{product.description}</p>
         </div>
 
         <div className="flex flex-col space-y-4">
+          {/* ปุ่ม Add to Cart */}
           <Button
             onClick={handleAddToCart}
-            className="w-full bg-black text-[#fdf6ec] py-6 rounded-lg hover:bg-gray-800 text-lg font-semibold"
+            className="w-full bg-black text-[#fdf6ec] rounded-lg hover:bg-stone-400 hover:text-black text-lg font-semibold h-10"
           >
             Add to Cart
           </Button>
 
-          <Link to="/products">
-            <button className="w-full bg-black text-[#fdf6ec] py-6 rounded-lg hover:bg-gray-800 text-lg font-semibold">
-              Back to Continue Shopping
-            </button>
-          </Link>
+          {/* ปุ่ม Back to Continue Shopping */}
+          <Button
+            asChild
+            className="w-full bg-black text-[#fdf6ec] rounded-lg hover:bg-stone-400 hover:text-black text-lg font-semibold h-10"
+          >
+            <Link to="/products">Back to Continue Shopping</Link>
+          </Button>
         </div>
       </div>
     </div>

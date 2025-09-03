@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { MyOrderStatus } from "./MyOrderStatus"; // สมมติว่าคุณมี component นี้แล้ว
+import { ProfilePrivacy } from "./ProfilePrivacy";
 
 export const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("info");
@@ -14,11 +15,11 @@ export const ProfilePage = () => {
     avatar: "/images/user-profile.png",
     name: "Hello World",
     info: {
-      firstname: "Jay",
-      lastname: "Ess",
-      email: "js@example.com",
-      tel: "123456789",
-      address: "99/99 Unboxian Rd, Bang Na Nuea, Bang Na, Bangkok 00000",
+      firstname: "Arm",
+      lastname: "JS",
+      email: "arm.js@gmail.com",
+      tel: "0812345678",
+      address: "88/88 Unboxian Rd, Bang Na Nuea, Bang Na, Bangkok 00000",
     },
   };
 
@@ -63,23 +64,8 @@ export const ProfilePage = () => {
       case "notification":
         return <MyOrderStatus />;
       case "privacy":
-        return (
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold">PRIVACY</h2>
-            <Button
-              asChild
-              className="w-full bg-gray-200 text-black hover:bg-gray-300"
-            >
-              <Link to="/profile/update">UPDATE PROFILE</Link>
-            </Button>
-            <Button
-              asChild
-              className="w-full bg-gray-200 text-black hover:bg-gray-300"
-            >
-              <Link to="/profile/delete">DELETE PROFILE</Link>
-            </Button>
-          </div>
-        );
+        return <ProfilePrivacy />;
+
       default:
         return null;
     }
@@ -117,7 +103,7 @@ export const ProfilePage = () => {
               className={`flex-1 md:w-full justify-center md:justify-start text-sm ${
                 activeTab === tab.key
                   ? "bg-black text-[#fdf6ec]"
-                  : "hover:bg-gray-200"
+                  : "hover:bg-stone-300"
               }`}
             >
               {tab.label}
