@@ -134,10 +134,10 @@ export const ProductPage = () => {
     {
       _id: "p1", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "POP MART The Monsters FALL IN WILD SERIES Vinyl Plush Doll",
+      name: "POP MART The MONSTERS - FALL IN WILD SERIES Vinyl Plush Doll",
       description:
-        "A collectible toy featuring Labubu, a cute monster character designed by Molly.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
-      price: "6999", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
+        "A detailed collectible designer plush featuring the character Labubu. The doll measures approximately 20 cm by 15 cm by 40 cm. The stuffing consists of 90% polyester fiber and 10% PE particles. This gives the plush a soft but durable texture. The design captures the whimsical and charming style of the Monsters series, making it highly appealing for collectors and fans of artistic collectible toys.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      price: "3999", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "New", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p1-labubu-fall-in-wild-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
@@ -149,36 +149,36 @@ export const ProductPage = () => {
     {
       _id: "p2", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
-      price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
-      condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
-      mainImage: "/images/p2-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
+      name: "POP MART The MONSTERS - FLIP WITH ME Vinyl Plush Doll",
+      description: "A detailed collectible designer plush featuring the character Labubu. It measures approximately 20 cm by 15 cm by 40 cm. The doll's shell is made from a blend of materials: 40% cotton, 17% PVC, 16% polyester, 15% ABS, and 12% TPR. Its stuffing consists of 90% polyester and 10% PE particles, giving it a soft yet durable texture. The design features the charming monster character Labubu with detailed craftsmanship, making it appealing for collectors and fans of Pop Mart's art toys. The plush embodies a mix of fabric and vinyl elements, capturing the unique aesthetic style typical of the Monsters series.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      price: "3999", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
+      condition: "New", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
+      mainImage: "/images/p2-labubu-flip-with-me-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p2-product-name-own-1.png",
-        "/images/p2-product-name-own-2.png",
+        "/images/p2-labubu-flip-with-me-own-1.png",
+        "/images/p2-labubu-flip-with-me-own-2.png",
       ],
     },
     {
       _id: "p3", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
-      price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
-      condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
-      mainImage: "/images/p3-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
+      name: "POP MART The MONSTERS - Let's Checkmate Series Vinyl Plush Doll",
+      description: "A detailed collectible designer plush featuring the character Labubu. The doll stands approximately 37 cm tall in a standing posture and 33 cm when sitting. It is made from a combination of materials including polyester, PVC, and ABS for the shell, while the stuffing consists of polyester and PP particles. The doll comes with a ring box made from PS, polyester, and hardware materials. The design features detailed craftsmanship typical of the Monsters series, making it a sought-after collectible item for fans and collectors of Pop Mart art toys.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      price: "3999", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
+      condition: "New", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
+      mainImage: "/images/p3-labubu-lets-checkmate-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p3-product-name-own-1.png",
-        "/images/p3-product-name-own-2.png",
+        "/images/p3-labubu-lets-checkmate-own-1.png",
+        "/images/p3-labubu-lets-checkmate-own-2.png",
       ],
     },
     {
       _id: "p4", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      name: "POP MART name",
+      description: "A col xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p4-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
@@ -191,8 +191,8 @@ export const ProductPage = () => {
     {
       _id: "p5", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      name: "POP MART name",
+      description: "A col xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p5-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
@@ -205,8 +205,8 @@ export const ProductPage = () => {
     {
       _id: "p6", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      name: "POP MART name",
+      description: "A col xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p6-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
@@ -219,8 +219,8 @@ export const ProductPage = () => {
     {
       _id: "p7", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      name: "POP MART name",
+      description: "A coll xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p7-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
@@ -233,8 +233,8 @@ export const ProductPage = () => {
     {
       _id: "p8", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "popmart name",
-      description: "A collaborative collectible xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
+      name: "POP MART name",
+      description: "A coll xxxxxxxxxxxxxx.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "xxxx", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend
       condition: "xxx", // tag มุมขวาบน มี 3 แบบ (New / New-Unboxed / Displayed, Like New)
       mainImage: "/images/p8-product-name-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx

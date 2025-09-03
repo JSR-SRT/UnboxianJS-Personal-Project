@@ -13,7 +13,7 @@ import { ProfilePage } from "./views/profile/ProfilePage";
 import { ProfilePrivacy } from "./views/profile/ProfilePrivacy";
 import { ProfileDelete } from "./views/profile/ProfileDelete";
 import { ProfileUpdate } from "./views/profile/ProfileUpdate";
-import { Notification } from "./views/profile/Notification";
+import { MyOrderStatus } from "./views/profile/MyOrderStatus";
 import { ProductPage } from "./views/ProductPage";
 import { ProductDetails } from "./views/ProductDetails";
 import { CartPage } from "./views/CartPage";
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       { path: "profile/privacy", element: <ProfilePrivacy /> },
       { path: "profile/delete", element: <ProfileDelete /> },
       { path: "profile/update", element: <ProfileUpdate /> },
-      { path: "profile/notification", element: <Notification /> },
+      { path: "profile/my-orders", element: <MyOrderStatus /> },
 
       // Others
       { path: "products", element: <ProductPage /> },
