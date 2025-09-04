@@ -31,11 +31,11 @@ export const ProductCard = ({ product, onSelect }) => {
           className="
       flex-1 text-black font-medium px-2
       pt-0 sm:pt-0 md:pt-0 
-      pb-1
+      pb-1 sm:pb-8 md:pb-3
       text-xs md:text-sm
       border-gray-200
       line-clamp-5 sm:line-clamp-5 md:line-clamp-5
-      min-h-[148px] sm:min-h-148px] md:min-h-[48px] flex-grow
+      min-h-[148px] sm:min-h-[148px] md:min-h-[48px] flex-grow
     "
         >
           {product.name}
