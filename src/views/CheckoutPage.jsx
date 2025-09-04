@@ -258,7 +258,7 @@ export const CheckoutPage = () => {
                 </div>
                   {/* Qty + ปุ่มลบ อยู่แถวเดียวกัน */}
                   <div className="flex flex-col items-end w-2/6 md:w-2/5">
-        <p className="text-sm md:text-base font-semibold text-right">฿ {Number(item.price).toLocaleString()}</p>
+        <p className="text-sm md:text-base font-semibold text-right whitespace-nowrap">฿ {Number(item.price).toLocaleString()}</p>
         <button
           onClick={() => handleRemoveItem(item._id)}
           className="text-stone-400 hover:text-stone-700 mt-2"
@@ -273,11 +273,11 @@ export const CheckoutPage = () => {
 
           <div className="space-y-2 pt-2 text-sm">
             <p className="flex justify-between">
-              <span className="text-gray-600">Subtotal</span>
+              <span className="text-stone-600">Subtotal</span>
               <span className="font-medium">฿{subtotal.toLocaleString()}</span>
             </p>
             <p className="flex justify-between">
-              <span className="text-gray-600">Shipping</span>
+              <span className="text-stone-600">Shipping</span>
               <span className="font-medium">฿{shipping.toLocaleString()}</span>
             </p>
             <Separator className="bg-black my-2" />
@@ -289,7 +289,7 @@ export const CheckoutPage = () => {
 
           <Button
             type="submit"
-            className="w-full bg-black text-white py-3 font-semibold hover:bg-stone-400 hover:text-black"
+            className="w-full bg-black text-[#fdf6ec] py-3 font-semibold hover:bg-stone-400 hover:text-black"
           >
             PAY NOW
           </Button>

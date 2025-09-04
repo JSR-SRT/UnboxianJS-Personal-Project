@@ -67,7 +67,7 @@ export const ProductDetails = () => {
         {/* Description */}
         <div className="mb-6">
           <h2 className="text-xl font-bold mb-2">Description</h2>
-          <p className="text-gray-700">{product.description}</p>
+          <p className="text-stone-700">{product.description}</p>
         </div>
 
         <div className="flex flex-col space-y-4">

@@ -69,7 +69,7 @@ export const MyOrderStatus = () => {
                       <p className="text-sm font-medium text-black">
                         {item.name} <span className="text-stone-400">x {item.qty}</span>
                       </p>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-stone-600">
                         ฿ {Number(item.price).toLocaleString()}
                       </p>
                     </div>

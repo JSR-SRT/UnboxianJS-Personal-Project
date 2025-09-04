@@ -325,7 +325,7 @@ export const ProductPage = () => {
             className={`${
               selectedCategory === "all"
                 ? "bg-black text-[#fdf6ec]"
-                : "bg-transparent text-gray-700 hover:bg-gray-200"
+                : "bg-transparent text-stone-700 hover:bg-stone-200"
             }`}
           >
             All
@@ -335,7 +335,7 @@ export const ProductPage = () => {
             className={`${
               selectedCategory === "bearbrick"
                 ? "bg-black text-[#fdf6ec]"
-                : "bg-transparent text-gray-700 hover:bg-gray-200"
+                : "bg-transparent text-stone-700 hover:bg-stone-200"
             }`}
           >
             Bearbrick
@@ -345,7 +345,7 @@ export const ProductPage = () => {
             className={`${
               selectedCategory === "popmart"
                 ? "bg-black text-[#fdf6ec]"
-                : "bg-transparent text-gray-700 hover:bg-gray-200"
+                : "bg-transparent text-stone-700 hover:bg-stone-200"
             }`}
           >
             Popmart

@@ -51,7 +51,7 @@ export const OrderConfirmationPage = () => {
                 <h2 className="text-xl font-bold">CUSTOMER INFORMATION</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <p className="font-semibold text-sm text-gray-600">
+                    <p className="font-semibold text-sm text-stone-600">
                       FULL NAME
                     </p>
                     <p className="text-black">
@@ -59,15 +59,15 @@ export const OrderConfirmationPage = () => {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-gray-600">PHONE</p>
+                    <p className="font-semibold text-sm text-stone-600">PHONE</p>
                     <p className="text-black">{customer.phone}</p>
                   </div>
                   <div className="md:col-span-2">
-                    <p className="font-semibold text-sm text-gray-600">EMAIL</p>
+                    <p className="font-semibold text-sm text-stone-600">EMAIL</p>
                     <p className="text-black">{customer.email}</p>
                   </div>
                   <div className="md:col-span-2">
-                    <p className="font-semibold text-sm text-gray-600">
+                    <p className="font-semibold text-sm text-stone-600">
                       SHIPPING ADDRESS
                     </p>
                     <p className="text-black">{customer.deliveryAddress}</p>
@@ -123,7 +123,7 @@ export const OrderConfirmationPage = () => {
                     />
                     <div className="flex flex-col">
                       <p className="text-sm font-semibold">{item.name}</p>
-                      <p className="text-xs text-gray-500">Qty: {item.qty}</p>
+                      <p className="text-xs text-stone-500">Qty: {item.qty}</p>
                     </div>
                   </div>
                   <p className="font-semibold">
@@ -134,13 +134,13 @@ export const OrderConfirmationPage = () => {
 
               <div className="space-y-2 pt-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Subtotal</span>
+                  <span className="text-stone-600">Subtotal</span>
                   <span className="font-medium">
                     ฿{subtotal.toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Shipping</span>
+                  <span className="text-stone-600">Shipping</span>
                   <span className="font-medium">
                     ฿{shipping.toLocaleString()}
                   </span>

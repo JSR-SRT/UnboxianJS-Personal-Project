@@ -20,7 +20,7 @@ export const CartPage = () => {
               <div>
                 <p className="text-sm md:text-base font-semibold">{item.name}</p>
                 {/* 💰 แสดงราคาที่ถูกต้อง */}
-                <p className="text-gray-600">฿ {Number(item.price).toLocaleString()}</p>
+                <p className="text-stone-600">฿ {Number(item.price).toLocaleString()}</p>
               </div>
             </div>
 
@@ -28,14 +28,14 @@ export const CartPage = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => updateQty(item._id, "decrease")}
-                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-stone-200"
+                className="w-8 h-8 border border-stone-400 flex items-center justify-center hover:bg-stone-200"
               >
                 -
               </button>
               <span>{item.qty}</span>
               <button
                 onClick={() => updateQty(item._id, "increase")}
-                className="w-8 h-8 border border-gray-400 flex items-center justify-center hover:bg-stone-200"
+                className="w-8 h-8 border border-stone-400 flex items-center justify-center hover:bg-stone-200"
               >
                 +
               </button>

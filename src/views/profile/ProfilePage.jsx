@@ -34,29 +34,29 @@ export const ProfilePage = () => {
                 <label className="text-sm font-medium text-gray-500">
                   FIRST NAME
                 </label>
-                <p className="text-base text-gray-800">{user.info.firstname}</p>
+                <p className="text-base text-stone-800">{user.info.firstname}</p>
               </div>
               <div className="flex flex-col">
-                <label className="text-sm font-medium text-gray-500">
+                <label className="text-sm font-medium text-stone-500">
                   LAST NAME
                 </label>
-                <p className="text-base text-gray-800">{user.info.lastname}</p>
+                <p className="text-base text-stone-800">{user.info.lastname}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
-                <label className="text-sm font-medium text-gray-500">
+                <label className="text-sm font-medium text-stone-500">
                   EMAIL
                 </label>
                 <p className="text-base text-gray-800">{user.info.email}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
-                <label className="text-sm font-medium text-gray-500">TEL</label>
+                <label className="text-sm font-medium text-stone-500">TEL</label>
                 <p className="text-base text-gray-800">{user.info.tel}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
-                <label className="text-sm font-medium text-gray-500">
+                <label className="text-sm font-medium text-stone-500">
                   ADDRESS
                 </label>
-                <p className="text-base text-gray-800">{user.info.address}</p>
+                <p className="text-base text-stone-800">{user.info.address}</p>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ export const ProfilePage = () => {
             <AvatarFallback>Cool Profile</AvatarFallback>
           </Avatar>
           <p className="text-lg font-semibold text-black">{user.name}</p>
-          <Button variant="ghost" className="mt-4 w-full md:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
+          <Button variant="ghost" className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
             UPLOAD YOUR COOL PIC
           </Button>
         </div>
