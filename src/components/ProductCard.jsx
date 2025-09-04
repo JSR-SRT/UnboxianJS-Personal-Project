@@ -4,10 +4,8 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"; // Import 
 // ✅ Named Export
 export const ProductCard = ({ product, onSelect }) => {
   return (
-    <Card className="h-full flex flex-col">
-      onClick={() => onSelect(product)}
-      className="cursor-pointer hover:shadow-lg transition-shadow duration-200 rounded-xl overflow-hidden bg-[#fdf6ec] h-full flex flex-col"
-    >
+    <Card className="h-full flex flex-col cursor-pointer hover:shadow-lg transition-shadow duration-200 rounded-xl overflow-hidden bg-[#fdf6ec]"
+      onClick={() => onSelect(product)}>
       {/* 🖼️ Product Image with New/Used Tag */}
       <CardContent className="relative p-0 h-56 flex items-center justify-center">
         {/* 🔖 New / Used Tag */}
