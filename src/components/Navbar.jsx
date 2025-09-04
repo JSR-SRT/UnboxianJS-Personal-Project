@@ -7,31 +7,32 @@ import {
   FaSignInAlt,
   FaUserPlus,
 } from "react-icons/fa";
+import { useCart } from '../contexts/CartContext'; // ✅ line 8: เพิ่ม import useCart hook
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // mock: ให้ถือว่าล็อกอินแล้ว
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  const { totalItems } = useCart(); // ✅ line 16: ดึงค่า totalItems จาก Context
 
-  // check ว่าหน้าไหนเป็น auth page
   const isAuthPage = ["/signin", "/register", "/forgot-password"].includes(
     location.pathname
   );
-
-  // check ว่าอยู่หน้า Home ไหม
   const isHomePage = location.pathname === "/";
 
-  // Function Logout
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   const handleLogout = () => {
-    setIsAuthenticated(false); // ล้าง state
-    localStorage.removeItem("token"); // ถ้าเก็บ token ไว้ ก็ลบออกด้วย
-    navigate("/"); // redirect ไปหน้า Home
+    setIsAuthenticated(false);
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
     <nav className="w-full bg-[#fdf6ec] border-gray-200 sticky top-0 z-50 shadow-sm">
-      {/* ใช้ px-6 + flex justify-between → content ชิดซ้าย/ขวา */}
       <div className="flex justify-between items-center px-6 py-2">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -42,7 +43,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* ถ้าเป็น auth page → แสดงเมนู Login / Signup */}
         {isAuthPage ? (
           <div className="flex items-center space-x-4">
             <Link
@@ -60,7 +60,7 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            {/* ✅ Tablet & Desktop เมนูหลัก */}
+            {/* ✅ Tablet & Desktop Menu */}
             <div className="hidden md:flex items-center space-x-10">
               <NavLink to="/products" className="hover:text-stone-700">
                 Shop
@@ -72,20 +72,24 @@ const Navbar = () => {
                 Contact
               </NavLink>
 
-              {/* SearchBar (เฉพาะ desktop) */}
               <div className="hidden xl:block">
                 <SearchBar />
               </div>
 
               {/* Cart & Profile */}
-              <NavLink to="/cart" className="hover:text-stone-700 text-xl">
+              {/* ✅ line 70-76: แก้ไขโค้ดส่วนนี้เพื่อแสดงจำนวนสินค้าบน Desktop/Tablet */}
+              <NavLink to="/cart" className="relative hover:text-stone-700 text-xl">
                 <FaShoppingCart />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-stone-400 text-black rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                    {totalItems}
+                  </span>
+                )}
               </NavLink>
               <NavLink to="/profile" className="hover:text-stone-700 text-xl">
                 <FaUser />
               </NavLink>
 
-              {/* Home = Get Started | หน้าอื่น = Logout */}
               {isHomePage ? (
                 <Link
                   to="/signin"
@@ -103,13 +107,27 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 text-black"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              ☰
-            </button>
+            {/* ✅ Mobile/Tablet Menu Button & Icons */}
+            <div className="md:hidden flex items-center space-x-4"> 
+                {/* ✅ line 95-101: แก้ไขโค้ดส่วนนี้เพื่อแสดงจำนวนสินค้าบน Mobile/Tablet */}
+                <NavLink to="/cart" className="relative text-xl" onClick={handleLinkClick}>
+                    <FaShoppingCart />
+                    {totalItems > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-stone-400 text-black rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                            {totalItems}
+                        </span>
+                    )}
+                </NavLink>
+                <NavLink to="/profile" onClick={handleLinkClick} className="text-xl">
+                    <FaUser />
+                </NavLink>
+                <button
+                    className="p-2 text-black"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                    ☰
+                </button>
+            </div>
           </>
         )}
       </div>
@@ -117,33 +135,36 @@ const Navbar = () => {
       {/* Mobile Menu (ถ้าไม่ใช่ auth page) */}
       {!isAuthPage && isMenuOpen && (
         <div className="md:hidden bg-[#fdf6ec] px-6 py-5 flex flex-col items-center space-y-4">
-          <NavLink to="/products" className="block">
+          <NavLink to="/products" className="block" onClick={handleLinkClick}>
             Shop
           </NavLink>
-          <NavLink to="/about" className="block">
+          <NavLink to="/about" className="block" onClick={handleLinkClick}>
             About Us
           </NavLink>
-          <NavLink to="/contact" className="block">
+          <NavLink to="/contact" className="block" onClick={handleLinkClick}>
             Contact
           </NavLink>
-          <NavLink to="/cart" className="block">
+          <NavLink to="/cart" className="block" onClick={handleLinkClick}>
             Cart
           </NavLink>
-          <NavLink to="/profile" className="block">
+          <NavLink to="/profile" className="block" onClick={handleLinkClick}>
             Profile
           </NavLink>
 
-          {/* Mobile: Home = Get Started | หน้าอื่น = Logout */}
           {isHomePage ? (
             <Link
               to="/signin"
+              onClick={handleLinkClick}
               className="w-full px-4 py-2 text-center rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
             >
               Get Started
             </Link>
           ) : (
             <button
-              onClick={handleLogout}
+              onClick={() => {
+                handleLogout();
+                handleLinkClick();
+              }}
               className="w-full px-4 py-2 rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
             >
               Logout

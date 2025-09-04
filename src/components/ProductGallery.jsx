@@ -15,7 +15,7 @@ export const ProductGallery = ({ products, onSelect }) => {
           )}
 
           {/* ✅ Product Card */}
-          <ProductCard product={p} onSelect={onSelect} />
+          <ProductCard product={p} onSelect={onSelect} className="h-full" />
         </div>
       ))}
     </div>

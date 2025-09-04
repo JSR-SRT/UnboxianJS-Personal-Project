@@ -18,8 +18,12 @@ export const ProfileDelete = () => {
     // ✅ เพิ่ม logic ในการลบโปรไฟล์จริง ๆ
     // เช่น: call API to delete the user account
     // เมื่อลบสำเร็จแล้วให้ navigate ไปยังหน้า login หรือหน้าแรก
-    navigate("/"); // ✅ นำทางผู้ใช้กลับไปหน้าแรก
-    // หรือ navigate("/login");
+    
+    const isSuccess = true; 
+
+    if (isSuccess) {
+        navigate("/account-deleted"); // ✅ line 22: นำทางไปยังหน้า AccountDeletedPage
+    }
   };
 
   return (

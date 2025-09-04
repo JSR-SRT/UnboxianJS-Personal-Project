@@ -164,7 +164,7 @@ export const ProductPage = () => {
     {
       _id: "p1", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "popmart", // ไม่ show ที่หน้า UI ให้ user เห็น
-      name: "POP MART The MONSTERS - FALL IN WILD SERIES Vinyl Plush Doll",
+      name: "POP MART The MONSTERS - FALL IN WILD Series Vinyl Plush Doll",
       description:
         "A detailed collectible designer plush featuring the character Labubu. The doll measures approximately 20 cm by 15 cm by 40 cm. The stuffing consists of 90% polyester fiber and 10% PE particles. This gives the plush a soft but durable texture. The design captures the whimsical and charming style of the Monsters series, making it highly appealing for collectors and fans of artistic collectible toys.", //show ให้ user เห็นบนหน้า ProductDetails.jsx
       price: "3950", // format ให้เป็น "฿ x,xxx" ทำตอน render ใน frontend

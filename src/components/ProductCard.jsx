@@ -6,7 +6,7 @@ export const ProductCard = ({ product, onSelect }) => {
   return (
     <Card
       onClick={() => onSelect(product)}
-      className="cursor-pointer hover:shadow-lg transition-shadow duration-200 rounded-xl overflow-hidden bg-[#fdf6ec]"
+      className="cursor-pointer hover:shadow-lg transition-shadow duration-200 rounded-xl overflow-hidden bg-[#fdf6ec] h-full flex flex-col"
     >
       {/* 🖼️ Product Image with New/Used Tag */}
       <CardContent className="relative p-0 h-56 flex items-center justify-center">
@@ -24,16 +24,25 @@ export const ProductCard = ({ product, onSelect }) => {
       </CardContent>
 
       {/* 📦 Name & Price Section */}
-      <CardFooter className="flex p-0">
-        {/* Left: Product Name */}
-        <div className="flex-1 text-black text-xs md:text-sm font-medium px-2 py-2 border-t border-gray-200">
-          {product.name}
-        </div>
-        {/* Right: Price */}
-        <div className="bg-black text-[#fdf6ec] text-xs md:text-sm font-semibold px-2 py-2 min-w-[60px] text-center">
-          {`฿ ${Number(product.price).toLocaleString()}`} 
-        </div>
-      </CardFooter>
+      <CardFooter className="flex p-0 mt-auto border-t border-gray-200">
+  {/* Left: Product Name */}
+  <div
+    className="
+      flex-1 text-black font-medium px-2 py-1
+      text-xs md:text-sm
+      border-gray-200
+      line-clamp-7 sm:line-clamp-2 md:line-clamp-3
+      min-h-[124px] sm:min-h-[48px] md:min-h-[72px]
+    "
+  >
+    {product.name}
+  </div>
+
+  {/* Right: Price */}
+  <div className="bg-black text-[#fdf6ec] text-xs md:text-sm font-semibold px-2 py-2 min-w-[60px] text-center">
+    {`฿ ${Number(product.price).toLocaleString()}`}
+  </div>
+</CardFooter>
     </Card>
   );
 };

@@ -30,11 +30,11 @@ export const ProductDetails = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center p-4 lg:p-10 min-h-screen">
       {/* Product Image Gallery */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center mb-8 lg:mb-0">
-        <Card className="w-full max-w-lg mb-4 rounded-xl">
-          <CardContent className="p-4 flex items-center justify-center">
+      <div className="w-full lg:w-1/2 flex flex-col items-center mb-8 lg:mb-0 bg-[#fdf6ec]">
+        <Card className="w-full max-w-lg mb-4 rounded-xl bg-[#fdf6ec]">
+          <CardContent className="p-4 flex items-center justify-center bg-[#fdf6ec]">
             {/* Main + Gallery Scroll */}
-            <div className="w-full flex overflow-x-scroll snap-x snap-mandatory space-x-4 scrollbar-hide">
+            <div className="w-full flex overflow-x-scroll snap-x snap-mandatory space-x-4 scrollbar-hide bg-[#fdf6ec]">
               {[product.mainImage, ...(product.gallery || [])].map(
                 (image, index) => (
                   <img
