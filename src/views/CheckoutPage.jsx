@@ -257,7 +257,7 @@ export const CheckoutPage = () => {
                   </div>
                 </div>
                   {/* Qty + ปุ่มลบ อยู่แถวเดียวกัน */}
-                  <div className="flex flex-col items-end w-2/6 md:w-2/5">
+                  <div className="flex flex-col items-end w-1/3 md:w-1/3">
         <p className="text-sm md:text-base font-semibold">฿ {Number(item.price).toLocaleString()}</p>
         <button
           onClick={() => handleRemoveItem(item._id)}
