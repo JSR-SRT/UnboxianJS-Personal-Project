@@ -100,7 +100,7 @@ export const CheckoutPage = () => {
 
       <form
         onSubmit={handleCheckout}
-        className="grid grid-cols-1 lg:grid-cols-4 gap-10"
+        className="grid grid-cols-1 lg:grid-cols-4 gap-5"
       >
         {/* 📝 ฟอร์ม checkout */}
         <div className="lg:col-span-3 space-y-8">
@@ -233,7 +233,7 @@ export const CheckoutPage = () => {
         </div>
 
         {/* 🛒 สรุปรายการ */}
-        <div className="bg-[#fdf6ec] rounded-xl shadow-lg p-6 space-y-4">
+        <div className="bg-[#fdf6ec] rounded-xl shadow-lg p-6 space-y-5">
           <h2 className="text-xl font-bold mb-3">
             YOUR ORDER ({cartItems.length})
           </h2>
@@ -242,7 +242,7 @@ export const CheckoutPage = () => {
             <div
               key={item._id}
               className="flex items-start justify-between border-b pb-4">
-              <div className="flex space-x-3">
+              <div className="flex space-x-2">
                 <img
                   src={item.mainImage}
                   alt={item.name}
@@ -257,7 +257,7 @@ export const CheckoutPage = () => {
                   </div>
                 </div>
                   {/* Qty + ปุ่มลบ อยู่แถวเดียวกัน */}
-                  <div className="flex flex-col items-end w-2/6 md:w-2/5">
+                  <div className="flex flex-col space-x-0.5 items-end w-2/6 md:w-2/5">
         <p className="text-sm md:text-base font-semibold text-right">฿ {Number(item.price).toLocaleString()}</p>
         <button
           onClick={() => handleRemoveItem(item._id)}

@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { MyOrderStatus } from "./MyOrderStatus"; // สมมติว่าคุณมี component นี้แล้ว
+import { MyOrderStatus } from "./MyOrderStatus"; 
 import { ProfilePrivacy } from "./ProfilePrivacy";
 
 export const ProfilePage = () => {
@@ -83,7 +83,7 @@ export const ProfilePage = () => {
           </Avatar>
           <p className="text-lg font-semibold text-black">{user.name}</p>
           <Button variant="ghost" className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
-            ADD YOUR AVATAR
+            ADD YOUR PIC
           </Button>
         </div>
 
