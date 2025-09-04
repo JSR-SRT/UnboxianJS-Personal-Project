@@ -32,7 +32,7 @@ export const ProductCard = ({ product, onSelect }) => {
       text-xs md:text-sm
       border-gray-200
       line-clamp-7 sm:line-clamp-4 md:line-clamp-5
-      min-h-[136px] sm:min-h-[60px] md:min-h-[108px] flex-grow
+      min-h-[136px] sm:min-h-[55px] md:min-h-[108px] flex-grow
     "
         >
           {product.name}
