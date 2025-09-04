@@ -2,7 +2,7 @@ export const AboutPage = () => {
   return (
     <section className="relative z-10 bg-center bg-cover min-h-screen w-full" >
       <h2 className="text-5xl font-bold mb-6 text-center">About Us</h2>
-      <p className="text-gray-700 max-w-2xl mx-auto text-lg text-left z-10 relative">
+      <p className="text-stone-700 max-w-2xl mx-auto text-lg text-left z-10 relative">
         <br></br><br></br><strong>UnboxianJS</strong> isn’t just about toys — it’s about culture.
         <br></br>We stand at the crossroads of street-inspired design, popular
         icons, modern aesthetics, cute vibes, and exceptional art toys that
