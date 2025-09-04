@@ -14,7 +14,7 @@ export const OrderStatusTracker = ({ order }) => {
   const statusClassName =
     statusColors[order.status] || "bg-gray-300 text-black";
   return (
-    <div className="bg-[#fdf6ec] p-6 rounded-xl shadow-md w-full max-w-2xl mx-auto">
+    <div className="bg-orange-100 p-6 rounded-xl shadow-md w-full max-w-2xl mx-auto">
       {/* 🔹 Header with Status Badge */}
       <div className="flex items-start justify-end mb-4">
         <Badge

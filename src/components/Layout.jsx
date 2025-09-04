@@ -11,7 +11,7 @@ const Layout = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className={`flex flex-col min-h-screen ${isHomePage ? 'bg-[#fdf6ec]' : 'bg-[#fdf6ec]'}`}>
+    <div className={`flex flex-col min-h-screen ${isHomePage ? 'bg-[#fdf6ec]' : 'bg-[#fdf6ea]'}`}>
       {/* Navbar ด้านบน */}
       <Navbar />
 

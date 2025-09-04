@@ -82,8 +82,8 @@ export const ProfilePage = () => {
             <AvatarFallback>Cool Profile</AvatarFallback>
           </Avatar>
           <p className="text-lg font-semibold text-black">{user.name}</p>
-          <Button variant="ghost" className="mt-4 w-full md:w-auto">
-            UPLOAD NEW AVATAR
+          <Button variant="ghost" className="mt-4 w-full md:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
+            UPLOAD YOUR COOL PIC
           </Button>
         </div>
 

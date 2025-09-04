@@ -8,7 +8,7 @@ export const ProductPage = () => {
   const navigate = useNavigate();
 
   const dummyProducts = [
-    // Bearbrick Products (8 items)
+    // Bearbrick Products (10 items b1-b10)
     {
       _id: "b1", // ไม่ show ที่หน้า UI ให้ user เห็น
       category: "bearbrick", // ไม่ show ที่หน้า UI ให้ user เห็น
@@ -36,7 +36,7 @@ export const ProductPage = () => {
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
         "/images/b2-cookie-own-1.png",
-        "/images/b2-cookie-own-2.png",
+        "/images/b2-cookie-own-2.jpg",
       ],
     },
     {
@@ -50,8 +50,8 @@ export const ProductPage = () => {
       mainImage: "/images/b3-minion-dave-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b3-minion-dave-own 1.png",
-        "/images/b3-minion-dave-own-2.png",
+        "/images/b3-minion-dave-own-1.jpg",
+        "/images/b3-minion-dave-own-2.jpg",
       ],
     },
     {
@@ -65,8 +65,8 @@ export const ProductPage = () => {
       mainImage: "/images/b4-tom-jerry-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b4-tomjerry-own-1.png",
-        "/images/b4-tomjerry-own-2.png",
+        "/images/b4-tom-jerry-own-1.png",
+        "/images/b4-tom-jerry-own-2.png",
       ],
     },
     {
@@ -95,8 +95,8 @@ export const ProductPage = () => {
       mainImage: "/images/b6-shaun-sheep-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b6-shaun-sheep-own-1.png",
-        "/images/b6-shaun-sheep-own-2.png",
+        "/images/b6-shaun-sheep-own-1.jpg",
+        "/images/b6-shaun-sheep-own-2.jpg",
       ],
     },
     {
@@ -110,8 +110,8 @@ export const ProductPage = () => {
       mainImage: "/images/b7-jean-michel-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b7-jean-michel-own-1.png",
-        "/images/b7-jean-michel-own-2.png",
+        "/images/b7-jean-michel-own-1.jpg",
+        "/images/b7-jean-michel-own-2.jpg",
       ],
     },
     {
@@ -125,8 +125,8 @@ export const ProductPage = () => {
       mainImage: "/images/b8-elmo-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b8-elmo-own-1.png",
-        "/images/b8-elmo-own-2.png",
+        "/images/b8-elmo-own-1.jpg",
+        "/images/b8-elmo-own-2.jpg",
       ],
     },
     {
@@ -139,8 +139,8 @@ export const ProductPage = () => {
       mainImage: "/images/b9-cheer-bear-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b9-cheer-bear-own-1.png",
-        "/images/b9-cheer-bear-own-2.png",
+        "/images/b9-cheer-bear-own-1.jpg",
+        "/images/b9-cheer-bear-own-2.jpg",
       ],
     },
     {
@@ -154,8 +154,8 @@ export const ProductPage = () => {
       mainImage: "/images/b10-liberty-walk-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/b10-liberty-walk-own-1.png",
-        "/images/b10-liberty-walk-own-2.png",
+        "/images/b10-liberty-walk-own-1.jpg",
+        "/images/b10-liberty-walk-own-2.jpg",
       ],
     },
 
@@ -172,8 +172,8 @@ export const ProductPage = () => {
       mainImage: "/images/p1-labubu-fall-in-wild-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p1-labubu-fall-in-wild-own-1.png",
-        "/images/p1-labubu-fall-in-wild-2.png",
+        "/images/p1-labubu-fall-in-wild-own-1.jpg",
+        "/images/p1-labubu-fall-in-wild-own-2.jpg",
       ],
     },
     {
@@ -186,8 +186,8 @@ export const ProductPage = () => {
       mainImage: "/images/p2-labubu-lets-checkmate-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p2-labubu-lets-checkmate-own-1.png",
-        "/images/p2-labubu-lets-checkmate-own-2.png",
+        "/images/p2-labubu-lets-checkmate-own-1.jpg",
+        "/images/p2-labubu-lets-checkmate-own-2.jpg",
       ],
     },
     {
@@ -200,8 +200,8 @@ export const ProductPage = () => {
       mainImage: "/images/p3-molly-childishness-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p3-molly-childishness-own-1.png",
-        "/images/p3-molly-childishness-own-2.png",
+        "/images/p3-molly-childishness-own-1.jpg",
+        "/images/p3-molly-childishness-own-2.jpg",
       ],
     },
     {
@@ -214,8 +214,8 @@ export const ProductPage = () => {
       mainImage: "/images/p4-molly-mango-sticky-rice-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p4-molly-mango-sticky-rice-own-1.png",
-        "/images/p4-molly-mango-sticky-rice-own-2.png",
+        "/images/p4-molly-mango-sticky-rice-own-1.jpg",
+        "/images/p4-molly-mango-sticky-rice-own-2.jpg",
       ],
     },
     {
@@ -228,8 +228,8 @@ export const ProductPage = () => {
       mainImage: "/images/p5-molly-panda-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p5-molly-panda-own-1.png",
-        "/images/p5-molly-panda-own-2.png",
+        "/images/p5-molly-panda-own-1.jpg",
+        "/images/p5-molly-panda-own-2.jpg",
       ],
     },
     {
@@ -242,8 +242,8 @@ export const ProductPage = () => {
       mainImage: "/images/p6-molly-garfield-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p6-molly-garfield-own-1.png",
-        "/images/p6-molly-garfield-own-2.png",
+        "/images/p6-molly-garfield-own-1.jpg",
+        "/images/p6-molly-garfield-own-2.jpg",
       ],
     },
     {
@@ -256,8 +256,8 @@ export const ProductPage = () => {
       mainImage: "/images/p7-molly-hello-moon-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p7-molly-hello-moon-own-1.png",
-        "/images/p7-molly-hello-moon-own-2.png",
+        "/images/p7-molly-hello-moon-own-1.jpg",
+        "/images/p7-molly-hello-moon-own-2.jpg",
       ],
     },
     {
@@ -270,8 +270,8 @@ export const ProductPage = () => {
       mainImage: "/images/p8-crybaby-queen-broken-heart-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p8-crybaby-queen-broken-heart-own-1.png",
-        "/images/p8-crybaby-queen-broken-heart-own-2.png",
+        "/images/p8-crybaby-queen-broken-heart-own-1.jpg",
+        "/images/p8-crybaby-queen-broken-heart-own-2.jpg",
       ],
     },
     {
@@ -284,8 +284,8 @@ export const ProductPage = () => {
       mainImage: "/images/p9-crybaby-hello-thailand-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p9-crybaby-hello-thailand-own-1.png",
-        "/images/p9-crybaby-hello-thailand-own-2.png",
+        "/images/p9-crybaby-hello-thailand-own-1.jpg",
+        "/images/p9-crybaby-hello-thailand-own-2.jpg",
       ],
     },
     {
@@ -298,8 +298,8 @@ export const ProductPage = () => {
       mainImage: "/images/p10-molly-snow-white-show.png", //show ให้ user เห็นบนหน้า UI ProductPage.jsx และ ProductDetails.jsx
       gallery: [
         //show ให้ user เห็นบนหน้า ProductDetails.jsx แบบ swipe เลื่อนได้ใน mobile
-        "/images/p10-molly-snow-white-own-1.png",
-        "/images/p10-molly-snow-white-2.png",
+        "/images/p10-molly-snow-white-own-1.jpg",
+        "/images/p10-molly-snow-white-own-2.jpg",
       ],
     },
   ];
