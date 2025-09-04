@@ -29,7 +29,7 @@ export const ProductCard = ({ product, onSelect }) => {
         {/* Left: Product Name */}
         <div
           className="
-      flex-1 text-black font-medium px-2 py-1
+      flex-1 text-black font-medium px-2 pt-0 pb-1
       text-xs md:text-sm
       border-gray-200
       line-clamp-5 sm:line-clamp-3 md:line-clamp-5
