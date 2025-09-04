@@ -45,7 +45,7 @@ export const OrderStatusTracker = ({ order }) => {
                     ${
                       isActive
                         ? "bg-black text-[#fdf6ec] border-black"
-                        : "bg-gray-200 border-gray-300"
+                        : "bg-stone-200 border-stone-400"
                     }`}
                 >
                   {index + 1}
@@ -59,27 +59,6 @@ export const OrderStatusTracker = ({ order }) => {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* 🔹 Product Summary and Total */}
-      <div className="mt-6 border-t pt-4">
-        <h3 className="font-semibold mb-2 text-black">Items</h3>
-        {order.items.map((item) => (
-          <div
-            key={item.id}
-            className="flex justify-between items-center mb-2 text-sm"
-          >
-            <span className="text-black">
-              {item.name} × {item.qty}
-            </span>
-            <span className="text-black">฿{Number(item.price).toLocaleString()}</span>
-          </div>
-        ))}
-        {/* ✅ แสดง Total ที่ด้านล่างสุด */}
-        <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-300">
-          <p className="text-base font-semibold text-black">Total:</p>
-          <p className="text-base font-semibold text-black">฿{order.total.toLocaleString()}</p>
         </div>
       </div>
     </div>

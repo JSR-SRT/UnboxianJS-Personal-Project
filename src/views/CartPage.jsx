@@ -7,7 +7,7 @@ export const CartPage = () => {
   const grandTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
 
   return (
-    <div className="min-h-screen bg-stone-100 text-black px-4 py-6 md:px-10 lg:px-20">
+    <div className="min-h-screen bg-[#fdf6ec] rounded-xl shadow-lg text-black px-4 py-6 md:px-10 lg:px-20">
       <h1 className="text-2xl font-bold mb-6">YOUR CART ({cartItems.length})</h1>
 
       {/* รายการสินค้า */}

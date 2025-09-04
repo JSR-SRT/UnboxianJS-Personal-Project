@@ -127,7 +127,7 @@ export const OrderConfirmationPage = () => {
                     </div>
                   </div>
                   <p className="font-semibold">
-                    ฿{Number(item.price).toLocaleString()}
+                    ฿{Number(item.price * item.qty).toLocaleString()}
                   </p>
                 </div>
               ))}

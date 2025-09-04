@@ -144,12 +144,6 @@ const Navbar = () => {
           <NavLink to="/contact" className="block" onClick={handleLinkClick}>
             Contact
           </NavLink>
-          <NavLink to="/cart" className="block" onClick={handleLinkClick}>
-            Cart
-          </NavLink>
-          <NavLink to="/profile" className="block" onClick={handleLinkClick}>
-            Profile
-          </NavLink>
 
           {isHomePage ? (
             <Link

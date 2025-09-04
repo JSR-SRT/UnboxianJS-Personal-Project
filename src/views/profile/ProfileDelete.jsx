@@ -27,7 +27,7 @@ export const ProfileDelete = () => {
   };
 
   return (
-    <Card className="w-full bg-stone-100 shadow-md rounded-xl p-6 border border-gray-200">
+    <Card className="w-full bg-[#fdf6ec] shadow-md rounded-xl p-6 border border-gray-200">
       <h2 className="text-lg md:text-xl font-bold text-red-600 mb-3">
         DELETE PROFILE!!!
       </h2>

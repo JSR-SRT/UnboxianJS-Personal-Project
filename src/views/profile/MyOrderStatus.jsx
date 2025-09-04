@@ -14,7 +14,7 @@ export const MyOrderStatus = () => {
     return (
       <div className="min-h-screen p-6 bg-[#fdf6ec] flex items-center justify-center text-black">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold">No order history found — your next adventure starts here!</h2>
+          <h2 className="text-2xl font-semibold">No order history found.<br></br><br></br> Your next adventure starts here!</h2>
           <Button asChild className="mt-4 bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400">
             <Link to="/products">Back to Browse</Link>
           </Button>
@@ -31,7 +31,7 @@ export const MyOrderStatus = () => {
     items: orderData.cart.map(item => ({
       id: item._id,
       name: item.name,
-      price: item.price,
+      price: item.price * item.qty,
       qty: item.qty,
       image: item.mainImage
     })),
@@ -47,12 +47,13 @@ export const MyOrderStatus = () => {
         {ordersToDisplay.map((order) => (
           <Card
             key={order.id}
-            className="bg-stone-100 shadow-md border border-gray-200 rounded-xl"
+            className="bg-[#fdf6ec] shadow-md border border-gray-200 rounded-xl"
           >
             <CardContent className="p-6 space-y-6">
               <OrderStatusTracker order={order} />
               
               {/* Items */}
+              <h2 className="text-lg font-bold mb-2 text-black">ITEMS</h2>
               <div className="space-y-3">
                 {order.items.map((item) => (
                   <div
@@ -66,9 +67,9 @@ export const MyOrderStatus = () => {
                     />
                     <div className="flex-1">
                       <p className="text-sm font-medium text-black">
-                        {item.name}
+                        {item.name} <span className="text-stone-400">x {item.qty}</span>
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-stone-500">
                         ฿ {Number(item.price).toLocaleString()}
                       </p>
                     </div>
@@ -83,7 +84,7 @@ export const MyOrderStatus = () => {
                 </p>
                 <Button
                   variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-[#fdf6ec]"
+                  className="bg-black text-[#fdf6ec] hover:bg-stone-400 hover:text-black"
                 >
                   View Details
                 </Button>

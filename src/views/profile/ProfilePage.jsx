@@ -13,7 +13,7 @@ export const ProfilePage = () => {
   // Mock user data
   const user = {
     avatar: "/images/user-profile.png",
-    name: "Hello World",
+    name: "Arm JS",
     info: {
       firstname: "Arm",
       lastname: "JS",

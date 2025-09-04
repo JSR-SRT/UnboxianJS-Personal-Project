@@ -89,7 +89,7 @@ export const CheckoutPage = () => {
       <form onSubmit={handleCheckout} className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* 📝 ฟอร์ม checkout */}
         <div className="lg:col-span-2 space-y-8">
-          <Card className="p-6 bg-stone-100">
+          <Card className="p-6 bg-[#fdf6ec]">
             <h2 className="text-xl font-bold mb-4">CONTACT INFORMATION</h2>
             <RadioGroup onValueChange={handleContactOptionChange} defaultValue="saved" className="space-y-4 mb-4">
               <div className="flex items-center space-x-2">
@@ -109,7 +109,7 @@ export const CheckoutPage = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-stone-100">
+          <Card className="p-6 bg-[#fdf6ec]">
             <h2 className="text-xl font-bold mb-4">DELIVERY</h2>
             <RadioGroup onValueChange={handleDeliveryOptionChange} defaultValue="saved" className="space-y-4 mb-4">
               <div className="flex items-center space-x-2">
@@ -131,7 +131,7 @@ export const CheckoutPage = () => {
             />
           </Card>
 
-          <Card className="p-6 bg-stone-100">
+          <Card className="p-6 bg-[#fdf6ec]">
             <h2 className="text-xl font-bold mb-4">PAYMENT METHOD</h2>
             <RadioGroup onValueChange={handlePaymentMethodChange} defaultValue="card" className="space-y-4">
               <div className="flex items-center space-x-2">
@@ -154,9 +154,9 @@ export const CheckoutPage = () => {
               </div>
               {formData.paymentMethod === "bank" && (
                 <div className="space-y-2 pl-6">
-                  <p>Account Name: <span className="font-semibold">Jay Ess</span></p>
-                  <p>Account Number: <span className="font-semibold">020-4-39087-5</span></p>
-                  <p>Bank: <span className="font-semibold">K Bank</span></p>
+                  <p>Account Name: <span className="font-semibold">Jittawee</span></p>
+                  <p>Account Number: <span className="font-semibold">030-1-16089-5</span></p>
+                  <p>Bank: <span className="font-semibold">Kasikorn</span></p>
                 </div>
               )}
             </RadioGroup>
