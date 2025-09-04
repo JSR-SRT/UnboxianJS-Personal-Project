@@ -142,13 +142,13 @@ export const RegisterPage = () => {
             <button
               type="button"
               onClick={() => navigate("/signin")}
-              className="flex-1 bg-gray-500 text-white py-3 rounded-lg hover:bg-gray-600"
+              className="flex-1 bg-stone-400 text-black py-3 rounded-lg hover:bg-black hover:text-[#fdf6ec]"
             >
               Back
             </button>
             <button
               type="submit"
-              className="flex-1 bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-gray-800"
+              className="flex-1 bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-stone-400 hover:text-black"
             >
               Register
             </button>

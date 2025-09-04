@@ -41,7 +41,7 @@ export const ForgotPasswordPage = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-gray-800"
+            className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-stone-400 hover:text-black"
           >
             Send Reset Link
           </button>

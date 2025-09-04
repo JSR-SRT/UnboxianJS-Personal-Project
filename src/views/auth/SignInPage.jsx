@@ -52,9 +52,9 @@ export const SignInPage = () => {
                 onChange={(e) => setRemember(e.target.checked)}
                 className="w-4 h-4"
               />
-              <span className="text-gray-600">Remember me</span>
+              <span className="text-stone-600">Remember me</span>
             </label>
-            <Link to="/forgot-password" className="text-gray-600 hover:underline">
+            <Link to="/forgot-password" className="text-stone-600 hover:underline">
               Forgot password?
             </Link>
           </div>
@@ -62,7 +62,7 @@ export const SignInPage = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-gray-800"
+            className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-stone-400 hover:text-black"
           >
             Login
           </button>

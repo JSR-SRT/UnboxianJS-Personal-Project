@@ -31,7 +31,7 @@ export const MyOrderStatus = () => {
     items: orderData.cart.map(item => ({
       id: item._id,
       name: item.name,
-      price: item.price * item.qty,
+      price: item.price,
       qty: item.qty,
       image: item.mainImage
     })),
