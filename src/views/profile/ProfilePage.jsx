@@ -31,7 +31,7 @@ export const ProfilePage = () => {
             <h2 className="text-xl font-bold">BASIC INFO</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex flex-col">
-                <label className="text-sm font-medium text-gray-500">
+                <label className="text-sm font-medium text-stone-500">
                   FIRST NAME
                 </label>
                 <p className="text-base text-stone-800">{user.info.firstname}</p>
