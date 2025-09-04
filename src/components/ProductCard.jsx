@@ -29,8 +29,8 @@ export const ProductCard = ({ product, onSelect }) => {
       flex-1 text-black font-medium px-2 py-1
       text-xs md:text-sm
       border-gray-200
-      line-clamp-7 sm:line-clamp-2 md:line-clamp-3
-      min-h-[124px] sm:min-h-[48px] md:min-h-[72px]
+      line-clamp-7 sm:line-clamp-3 md:line-clamp-3
+      min-h-[144px] sm:min-h-[48px] md:min-h-[72px]
       flex-grow
     "
   >

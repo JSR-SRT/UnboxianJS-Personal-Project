@@ -83,7 +83,7 @@ export const ProfilePage = () => {
           </Avatar>
           <p className="text-lg font-semibold text-black">{user.name}</p>
           <Button variant="ghost" className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
-            UPLOAD YOUR COOL PIC
+            ADD YOUR AVATAR
           </Button>
         </div>
 
