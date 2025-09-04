@@ -250,7 +250,7 @@ export const CheckoutPage = () => {
                 />
 
                 {/* กล่องด้านขวา */}
-                <div className="flex flex-col">
+                <div className="flex flex-col space-x-5">
                   {/* ชื่อสินค้า */}
                   <p className="text-sm font-semibold">{item.name}</p>
                   <p className="text-xs text-stone-500 mt-1">Qty: {item.qty}</p>
