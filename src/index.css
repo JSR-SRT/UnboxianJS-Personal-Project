@@ -121,3 +121,12 @@
     font-family: 'Inter', sans-serif;
   }
 }
+
+/* ซ่อน scrollbar สำหรับทุก browser */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE และ Edge */
+  scrollbar-width: none;    /* Firefox */
+}
