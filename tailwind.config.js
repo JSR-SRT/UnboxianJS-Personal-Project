@@ -1,12 +1,12 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}",   // ✅ ครอบคลุมไฟล์ JSX ของคุณ
+    "./src/**/*.{js,jsx}",   
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    require("tailwind-scrollbar-hide"),  // ✅ แค่ require ตรงนี้
+    require("tailwind-scrollbar-hide"),  
   ],
 }

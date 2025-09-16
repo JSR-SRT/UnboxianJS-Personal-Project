@@ -77,7 +77,7 @@ const Navbar = () => {
               </div>
 
               {/* Cart & Profile */}
-              {/* ✅ line 70-76: แก้ไขโค้ดส่วนนี้เพื่อแสดงจำนวนสินค้าบน Desktop/Tablet */}
+              {/* แสดงจำนวนสินค้าบน Desktop/Tablet */}
               <NavLink to="/cart" className="relative hover:text-stone-700 text-xl">
                 <FaShoppingCart />
                 {totalItems > 0 && (

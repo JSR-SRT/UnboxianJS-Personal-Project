@@ -221,10 +221,10 @@ export const CheckoutPage = () => {
                   </p>
                   <p>
                     Account Number:{" "}
-                    <span className="font-semibold">030-1-16089-5</span>
+                    <span className="font-semibold">929-9-03434-9</span>
                   </p>
                   <p>
-                    Bank: <span className="font-semibold">Kasikorn</span>
+                    Bank: <span className="font-semibold">Bangkok</span>
                   </p>
                 </div>
               )}
