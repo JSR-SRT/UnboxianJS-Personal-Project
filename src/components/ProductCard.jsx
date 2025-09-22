@@ -1,19 +1,18 @@
 import React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card"; // Import Card components from ShadCN
 
-// ✅ Named Export
 export const ProductCard = ({ product, onSelect }) => {
   return (
     <Card
       onClick={() => onSelect(product)}
       className="relative cursor-pointer hover:shadow-lg transition-shadow duration-200 rounded-xl overflow-hidden bg-[#fdf6ec] h-full flex flex-col"
     >
-       {/* 🔖 New / Used Tag */}
+       {/* Tag */}
         <div className="absolute top-0 right-0 z-10 bg-black text-[#fdf6ec] text-xs font-semibold px-2 py-1 rounded-tr-xl">
           {product.condition}
         </div>
 
-      {/* 🖼️ Product Image with New/Used Tag */}
+      {/* Product Image with Tag */}
       <CardContent className="relative p-0 h-56 flex items-center justify-center">
 
         {/* Image */}
@@ -24,7 +23,7 @@ export const ProductCard = ({ product, onSelect }) => {
         />
       </CardContent>
 
-      {/* 📦 Name & Price Section */}
+      {/* Name & Price Section */}
       <CardFooter className="flex p-0 mt-auto border-t border-gray-200">
         {/* Left: Product Name */}
         <div

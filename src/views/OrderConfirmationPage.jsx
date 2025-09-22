@@ -107,7 +107,7 @@ export const OrderConfirmationPage = () => {
               </div>
             </div>
 
-            {/* 🛒 Order Summary */}
+            {/* Order Summary */}
             <div className="lg:border-l lg:border-gray-200 lg:pl-8 space-y-4">
               <h2 className="text-xl font-bold mb-4">ORDER SUMMARY</h2>
               {cart.map((item) => (

@@ -1,4 +1,3 @@
-// views/ProductDetails.jsx
 import { useLocation, Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

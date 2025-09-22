@@ -1,4 +1,3 @@
-// src/views/ForgotPasswordPage.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -8,7 +7,7 @@ export const ForgotPasswordPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic for sending a password reset email goes here
+    // Logic for sending a password reset email
     console.log("Password reset link requested for:", email);
 
     // Show a success message to the user

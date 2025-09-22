@@ -1,4 +1,3 @@
-// src/components/ProductGallery.jsx
 import React from "react"
 import { ProductCard } from "./ProductCard"
 
@@ -8,7 +7,7 @@ export const ProductGallery = ({ products, onSelect }) => {
       {products.map((p) => (
         <div key={p._id} className="relative">
 
-          {/* ✅ Product Card */}
+          {/* Product Card */}
           <ProductCard product={p} onSelect={onSelect} className="h-full" />
         </div>
       ))}

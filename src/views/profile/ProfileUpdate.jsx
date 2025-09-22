@@ -12,7 +12,7 @@ export const ProfileUpdate = () => {
     tel: "",
     address: "",
   });
-  const [status, setStatus] = useState(null); // ✅ เพิ่ม state สำหรับจัดการสถานะ
+  const [status, setStatus] = useState(null); // เพิ่ม state สำหรับจัดการสถานะ
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,7 +24,7 @@ export const ProfileUpdate = () => {
 
     console.log("Updating Profile:", form);
 
-    // ✅ ในชีวิตจริง จะเรียก API เพื่ออัปเดตข้อมูล
+    // เรียก API เพื่อ update ข้อมูล
     // ตัวอย่าง: simulate API call
     setTimeout(() => {
       // สมมติว่าการอัปเดตสำเร็จ
@@ -38,7 +38,7 @@ export const ProfileUpdate = () => {
         Change Your Info
       </h2>
 
-      {/* ✅ แสดงข้อความยืนยันเมื่ออัปเดตสำเร็จ */}
+      {/* แสดงข้อความยืนยันเมื่อ update สำเร็จ */}
       {status && (
         <div
           className={`p-3 mb-4 rounded-lg text-sm font-medium ${

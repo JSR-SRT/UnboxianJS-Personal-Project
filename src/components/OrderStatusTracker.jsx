@@ -15,7 +15,7 @@ export const OrderStatusTracker = ({ order }) => {
     statusColors[order.status] || "bg-gray-300 text-black";
   return (
     <div className="bg-orange-100 p-6 rounded-xl shadow-md w-full max-w-2xl mx-auto">
-      {/* 🔹 Header with Status Badge */}
+      {/* Header with Status Badge */}
       <div className="flex items-start justify-end mb-4">
         <Badge
           className={`mt-2 px-3 py-1 text-xs rounded-full ${statusClassName}`}
@@ -24,13 +24,13 @@ export const OrderStatusTracker = ({ order }) => {
         </Badge>
       </div>
 
-      {/* 🔹 Order Info (ด้านล่าง Badge) */}
+      {/* Order Info (ด้านล่าง Badge) */}
       <div className="text-black mb-6">
         <h2 className="text-lg font-bold"> #{order.id}</h2>
         <p className="text-sm text-gray-600">Date: {order.date}</p>
       </div>
 
-      {/* 🔹 Status Tracker */}
+      {/* Status Tracker */}
       <div className="relative w-full overflow-x-auto mb-6">
         <div className="flex min-w-[400px] md:min-w-0 justify-between items-center">
           {steps.map((step, index) => {

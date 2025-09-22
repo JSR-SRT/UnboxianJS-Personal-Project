@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 
 export const ProfileDelete = () => {
   const [form, setForm] = useState({ email: "", password: "" });
-  const navigate = useNavigate(); // ✅ สร้าง hook สำหรับการนำทาง
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,14 +15,14 @@ export const ProfileDelete = () => {
   const handleDelete = (e) => {
     e.preventDefault();
     console.log("Delete Profile:", form);
-    // ✅ เพิ่ม logic ในการลบโปรไฟล์จริง ๆ
+    // logic ในการลบโปรไฟล์จริง ๆ
     // เช่น: call API to delete the user account
     // เมื่อลบสำเร็จแล้วให้ navigate ไปยังหน้า login หรือหน้าแรก
     
     const isSuccess = true; 
 
     if (isSuccess) {
-        navigate("/account-deleted"); // ✅ line 22: นำทางไปยังหน้า AccountDeletedPage
+        navigate("/account-deleted"); // link ไปยังหน้า AccountDeletedPage
     }
   };
 
@@ -70,7 +70,7 @@ export const ProfileDelete = () => {
             type="button"
             variant="outline"
             className="flex-1 w-full bg-black text-[#fdf6ec] hover:bg-stone-400"
-            onClick={() => navigate(-1)} // ✅ ใช้ navigate(-1) เพื่อกลับไปหน้าก่อนหน้า
+            onClick={() => navigate(-1)} // navigate(-1) เพื่อกลับไปหน้าก่อนหน้า
           >
             Back
           </Button>

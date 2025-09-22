@@ -1,4 +1,3 @@
-// src/views/HomePage.jsx
 export const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#fdf6ec] drop-shadow-lg rounded-xl flex flex-col items-center justify-center text-center px-6 py-2">

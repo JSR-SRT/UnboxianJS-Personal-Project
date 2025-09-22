@@ -15,11 +15,11 @@ export const CartPage = () => {
         {cartItems.map((item) => (
           <div key={item._id} className="flex items-center justify-between border-b border-gray-300 pb-4">
             <div className="flex items-center space-x-4">
-              {/* ✅ ใช้ mainImage แทน image */}
+              {/* ใช้ mainImage แทน image */}
               <img src={item.mainImage} alt={item.name} className="w-20 h-20 object-contain border" />
               <div>
                 <p className="text-sm md:text-base font-semibold">{item.name}</p>
-                {/* 💰 แสดงราคาที่ถูกต้อง */}
+                {/* แสดงราคาที่ถูกต้อง */}
                 <p className="text-stone-600">฿ {Number(item.price).toLocaleString()}</p>
               </div>
             </div>

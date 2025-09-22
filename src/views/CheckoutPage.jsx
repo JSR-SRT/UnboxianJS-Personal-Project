@@ -29,7 +29,7 @@ export const CheckoutPage = () => {
     lastName: userProfile.lastName,
     email: userProfile.email,
     phone: userProfile.phone,
-    contactOption: "saved", // ✅ Default contact option
+    contactOption: "saved", // Default contact option
     deliveryAddress: userProfile.address,
     addressOption: "saved",
     paymentMethod: "card",
@@ -75,7 +75,6 @@ export const CheckoutPage = () => {
 
   // ฟังก์ชันลบสินค้าออกจาก cartItems state
   const handleRemoveItem = (id) => {
-    // <-- เพิ่มฟังก์ชันนี้ลบสินค้า
     const updatedCart = cartItems.filter((item) => item._id !== id);
     setCartItems(updatedCart);
   };
@@ -102,7 +101,7 @@ export const CheckoutPage = () => {
         onSubmit={handleCheckout}
         className="grid grid-cols-1 lg:grid-cols-5 gap-4"
       >
-        {/* 📝 ฟอร์ม checkout */}
+        {/* ฟอร์ม checkout */}
         <div className="lg:col-span-3 space-y-8">
           <Card className="p-6 bg-[#fdf6ec]">
             <h2 className="text-xl font-bold mb-4">CONTACT INFORMATION</h2>
@@ -232,7 +231,7 @@ export const CheckoutPage = () => {
           </Card>
         </div>
 
-        {/* 🛒 สรุปรายการ */}
+        {/* สรุปรายการ */}
         <div className="bg-[#fdf6ec] rounded-xl shadow-lg p-6 space-y-4 lg:col-span-2">
           <h2 className="text-xl font-bold mb-3">
             YOUR ORDER ({cartItems.length})

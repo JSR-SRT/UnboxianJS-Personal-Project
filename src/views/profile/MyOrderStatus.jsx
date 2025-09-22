@@ -1,5 +1,3 @@
-// MyOrderStatus.jsx
-
 import React from "react";
 import { useLocation, Link } from "react-router-dom"; // เพิ่ม useLocation
 import { Card, CardContent } from "@/components/ui/card";
@@ -23,7 +21,7 @@ export const MyOrderStatus = () => {
     );
   }
 
-  // สร้างอาร์เรย์ของ orders โดยใช้ข้อมูลที่ได้รับมา
+  // สร้าง Array ของ orders โดยใช้ข้อมูลที่ได้รับมา
   const ordersToDisplay = [{
     id: orderData.id,
     date: new Date().toLocaleDateString(),

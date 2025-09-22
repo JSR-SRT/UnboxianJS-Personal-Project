@@ -7,14 +7,14 @@ import {
   FaSignInAlt,
   FaUserPlus,
 } from "react-icons/fa";
-import { useCart } from '../contexts/CartContext'; // ✅ line 8: เพิ่ม import useCart hook
+import { useCart } from '../contexts/CartContext'; // import useCart hook
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const { totalItems } = useCart(); // ✅ line 16: ดึงค่า totalItems จาก Context
+  const { totalItems } = useCart(); // ดึงค่า totalItems จาก Context
 
   const isAuthPage = ["/signin", "/register", "/forgot-password"].includes(
     location.pathname
@@ -60,7 +60,7 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            {/* ✅ Tablet & Desktop Menu */}
+            {/* Tablet & Desktop Menu */}
             <div className="hidden md:flex items-center space-x-10">
               <NavLink to="/products" className="hover:text-stone-700">
                 Shop
@@ -77,7 +77,7 @@ const Navbar = () => {
               </div>
 
               {/* Cart & Profile */}
-              {/* แสดงจำนวนสินค้าบน Desktop/Tablet */}
+              {/* แสดงจำนวนสินค้าบน Desktop/tablet */}
               <NavLink to="/cart" className="relative hover:text-stone-700 text-xl">
                 <FaShoppingCart />
                 {totalItems > 0 && (
@@ -107,9 +107,9 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* ✅ Mobile/Tablet Menu Button & Icons */}
+            {/* Mobile/Tablet Menu Button & Icons */}
             <div className="md:hidden flex items-center space-x-4"> 
-                {/* ✅ line 95-101: แก้ไขโค้ดส่วนนี้เพื่อแสดงจำนวนสินค้าบน Mobile/Tablet */}
+                {/* แสดงจำนวนสินค้าบน Mobile/Tablet */}
                 <NavLink to="/cart" className="relative text-xl" onClick={handleLinkClick}>
                     <FaShoppingCart />
                     {totalItems > 0 && (

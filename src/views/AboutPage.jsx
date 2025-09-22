@@ -27,7 +27,7 @@ export const AboutPage = () => {
         remembering.
       </p>
 
-      {/* ✅ BG Images */}
+      {/* BG Images */}
       <div
         className="absolute inset-0 -z-10 opacity-10"
         style={{
