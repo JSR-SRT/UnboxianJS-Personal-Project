@@ -39,6 +39,13 @@ export const CartPage = () => {
               >
                 +
               </button>
+               <button
+                onClick={() => removeFromCart(item._id)} // ลบสินค้าออกจาก cart
+                className="ml-2 text-red-500 hover:text-red-700 text-lg"
+                title="Remove item"
+              >
+                🗑️
+              </button>
             </div>
           </div>
         ))}
