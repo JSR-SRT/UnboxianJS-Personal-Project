@@ -31,9 +31,9 @@ export const CheckoutPage = () => {
     firstName: userProfile.firstName,
     lastName: userProfile.lastName,
     email: userProfile.email,
-    phone: userProfile.phone,
+    phoneNumber: userProfile.phoneNumber,
     contactOption: "saved",
-    deliveryAddress: userProfile.address,
+    shippingAddress: userProfile.shippingAddress,
     addressOption: "saved",
     paymentMethod: "card",
   });
@@ -42,8 +42,8 @@ export const CheckoutPage = () => {
     (sum, item) => sum + Number(item.price) * item.qty,
     0
   );
-  const shipping = subtotal > 0 ? 50 : 0;
-  const total = subtotal + shipping;
+  const deliveryFee = subtotal > 0 ? 50 : 0;
+  const total = subtotal + deliveryFee;
 
   const generateOrderId = () => {
     return "ORD-" + Math.floor(10000 + Math.random() * 90000);
@@ -61,7 +61,7 @@ export const CheckoutPage = () => {
       firstName: value === "saved" ? userProfile.firstName : "",
       lastName: value === "saved" ? userProfile.lastName : "",
       email: value === "saved" ? userProfile.email : "",
-      phone: value === "saved" ? userProfile.phone : "",
+      phoneNumber: value === "saved" ? userProfile.phoneNumber : "",
     }));
   };
 
@@ -69,7 +69,7 @@ export const CheckoutPage = () => {
     setFormData((prevState) => ({
       ...prevState,
       addressOption: value,
-      deliveryAddress: value === "saved" ? userProfile.address : "",
+      shippingAddress: value === "saved" ? userProfile.shippingAddress : "",
     }));
   };
 
@@ -95,7 +95,7 @@ export const CheckoutPage = () => {
       customer: formData,
       cart: cartItems,
       subtotal,
-      shipping,
+      deliveryFee,
       total,
     };
 
@@ -282,7 +282,7 @@ export const CheckoutPage = () => {
                   <div className="flex flex-col space-x-5">
                     <p className="text-sm font-semibold">{item.name}</p>
                     <p className="text-xs text-stone-500 mt-1">
-                      Qty: {item.qty}
+                      Qty: {item.quantity}
                     </p>
                   </div>
                 </div>
@@ -310,7 +310,7 @@ export const CheckoutPage = () => {
             </p>
             <p className="flex justify-between">
               <span className="text-stone-600">Shipping</span>
-              <span className="font-medium">฿{shipping.toLocaleString()}</span>
+              <span className="font-medium">฿{deliveryFee.toLocaleString()}</span>
             </p>
             <Separator className="bg-black my-2" />
             <p className="flex justify-between text-base font-bold">

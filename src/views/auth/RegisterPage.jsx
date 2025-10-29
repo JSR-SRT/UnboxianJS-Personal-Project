@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { signupUser } from "@/services/authService";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    address: "",
-    phone: "",
+    shippingAddress: "",
+    phoneNumber: "",
     username: "",
     password: "",
     confirmPassword: "",
   });
+
+  const [loading, setLoading] = useState(false); // loading state
 
   // Handle form field changes
   const handleChange = (e) => {
@@ -23,22 +26,65 @@ export const RegisterPage = () => {
     });
   };
 
+  // ✅ เพิ่ม password validation function
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      return "Password must be at least 8 characters long";
+    }
+    if (!/[A-Z]/.test(password)) {
+      return "Password must contain at least one uppercase letter";
+    }
+    if (!/[a-z]/.test(password)) {
+      return "Password must contain at least one lowercase letter";
+    }
+    if (!/[0-9]/.test(password)) {
+      return "Password must contain at least one number";
+    }
+    return null; // Valid password
+  };
+
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // ✅ Validate password
+    const passwordError = validatePassword(formData.password);
+    if (passwordError) {
+      toast.error(passwordError);
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match.");
       return;
     }
 
-    // Simulate API call for user registration
-    console.log("Registering user:", formData);
+    setLoading(true); // เริ่ม loading
 
-    // Show a success message
-    toast.success("Registration successful!");
-    
-    // Redirect to login page after successful registration
-    navigate("/signin");
+    try {
+      // เรียก API
+      const data = await signupUser({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        username: formData.username,
+        password: formData.password,
+        shippingAddress: formData.shippingAddress,
+      });
+
+      if (data.error === false) {
+        toast.success("Registration successful!");
+        navigate("/signin");
+      } else {
+        toast.error(data.message || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error(error.response?.data?.message || "Registration failed. Please try again.");
+    } finally {
+      setLoading(false); // หยุด loading
+    }
   };
 
   return (
@@ -50,22 +96,21 @@ export const RegisterPage = () => {
         >
           <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 
-          {/* Firstname & Lastname */}
           <div className="grid md:grid-cols-2 gap-4 mb-4">
             <input
               type="text"
-              name="firstname"
+              name="firstName"
               placeholder="Firstname"
-              value={formData.firstname}
+              value={formData.firstName}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg"
               required
             />
             <input
               type="text"
-              name="lastname"
+              name="lastName"
               placeholder="Lastname"
-              value={formData.lastname}
+              value={formData.lastName}
               onChange={handleChange}
               className="w-full p-3 border rounded-lg"
               required
@@ -85,9 +130,9 @@ export const RegisterPage = () => {
 
           {/* Address */}
           <textarea
-            name="address"
+            name="shippingAddress"
             placeholder="Address"
-            value={formData.address}
+            value={formData.shippingAddress}
             onChange={handleChange}
             className="w-full h-24 mb-4 p-3 border rounded-lg resize-none"
             required
@@ -96,9 +141,9 @@ export const RegisterPage = () => {
           {/* Phone */}
           <input
             type="tel"
-            name="phone"
+            name="phoneNumber"
             placeholder="Phone"
-            value={formData.phone}
+            value={formData.phoneNumber}
             onChange={handleChange}
             className="w-full mb-4 p-3 border rounded-lg"
             required
@@ -119,7 +164,7 @@ export const RegisterPage = () => {
           <input
             type="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Enter your password (min 8 chars, include uppercase, lowercase, number)"
             value={formData.password}
             onChange={handleChange}
             className="w-full mb-4 p-3 border rounded-lg"
@@ -143,14 +188,16 @@ export const RegisterPage = () => {
               type="button"
               onClick={() => navigate("/signin")}
               className="flex-1 bg-stone-400 text-black py-3 rounded-lg hover:bg-black hover:text-[#fdf6ec]"
+              disabled={loading}
             >
               Back
             </button>
             <button
               type="submit"
               className="flex-1 bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-stone-400 hover:text-black"
+              disabled={loading}
             >
-              Register
+              {loading ? "Registering..." : "Register"}
             </button>
           </div>
 

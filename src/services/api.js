@@ -5,10 +5,7 @@ const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3030";
 
 const api = axios.create({
   baseURL,
-  withCredentials: true, // ส่ง cookies (JWT) ไปด้วย
-  headers: {
-    "Content-Type": "application/json",
-  },
+  withCredentials: true, // critical for sending cookies!
 });
 
 // Interceptor สำหรับจัดการ errors

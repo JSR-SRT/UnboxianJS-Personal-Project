@@ -21,7 +21,7 @@ export const OrderConfirmationPage = () => {
     );
   }
 
-  const { customer, cart, subtotal, shipping, total, id } = orderData;
+  const { customer, cart, subtotal, deliveryFee, total, id } = orderData;
 
   return (
     <div className="min-h-screen p-4 md:p-10 text-black flex justify-center bg-[#fdf6ec]">
@@ -60,7 +60,7 @@ export const OrderConfirmationPage = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-sm text-stone-600">PHONE</p>
-                    <p className="text-black">{customer.phone}</p>
+                    <p className="text-black">{customer.phoneNumber}</p>
                   </div>
                   <div className="md:col-span-2">
                     <p className="font-semibold text-sm text-stone-600">EMAIL</p>
@@ -70,7 +70,7 @@ export const OrderConfirmationPage = () => {
                     <p className="font-semibold text-sm text-stone-600">
                       SHIPPING ADDRESS
                     </p>
-                    <p className="text-black">{customer.deliveryAddress}</p>
+                    <p className="text-black">{customer.shippingAddress}</p>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export const OrderConfirmationPage = () => {
                     />
                     <div className="flex flex-col">
                       <p className="text-sm font-semibold">{item.name}</p>
-                      <p className="text-xs text-stone-500">Qty: {item.qty}</p>
+                      <p className="text-xs text-stone-500">Qty: {item.quantity}</p>
                     </div>
                   </div>
                   <p className="font-semibold">
@@ -142,7 +142,7 @@ export const OrderConfirmationPage = () => {
                 <div className="flex justify-between">
                   <span className="text-stone-600">Shipping</span>
                   <span className="font-medium">
-                    ฿{shipping.toLocaleString()}
+                    ฿{deliveryFee.toLocaleString()}
                   </span>
                 </div>
                 <Separator className="bg-black my-2" />

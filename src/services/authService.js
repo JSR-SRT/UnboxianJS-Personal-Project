@@ -2,22 +2,22 @@ import api from "./api";
 
 // Register
 export const signupUser = async ({ 
-  firstname, 
-  lastname, 
+  firstName, 
+  lastName, 
   email, 
-  phone, 
+  phoneNumber, 
   username, 
   password, 
-  address 
+  shippingAddress 
 }) => {
   const response = await api.post("/auth/register", {
-    firstname,
-    lastname,
+    firstName,
+    lastName,
     email,
-    phone,
+    phoneNumber,
     username,
     password,
-    address: address || "", // optional
+    shippingAddress: shippingAddress || "", // optional
   });
   return response.data;
 };

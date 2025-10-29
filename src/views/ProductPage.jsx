@@ -16,8 +16,10 @@ export const ProductPage = () => {
       try {
         const data = await fetchProducts();
 
-        if (data.error === false) {
+        if (data.error === false && Array.isArray(data.products)) {
           setProducts(data.products);
+        } else if (Array.isArray(data)) {
+          setProducts(data);
         }
       } catch (error) {
         console.error("Failed to fetch products:", error);

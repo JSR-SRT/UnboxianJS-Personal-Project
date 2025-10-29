@@ -1,15 +1,35 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner"; //
+import { loginUser } from "@/services/authService";
 
 export const SignInPage = () => {
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate(); //
+  const [username, setUsername] = useState(""); //
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [loading, setLoading] = useState(false); //
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Logging in:", email, password, remember);
+    setLoading(true);
+
+    try {
+      // เรียก API
+      const data = await loginUser({ username, password, remember });
+
+      if (data.error === false) {
+        toast.success("Login successful!");
+        navigate("/"); // redirect ไปหน้าแรก
+      } else {
+        toast.error(data.message || "Login failed");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error(error.response?.data?.message || "Login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -25,10 +45,10 @@ export const SignInPage = () => {
 
           {/* Email */}
           <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="w-full mb-4 p-3 border rounded-lg"
             required
           />
@@ -63,8 +83,9 @@ export const SignInPage = () => {
           <button
             type="submit"
             className="w-full bg-black text-[#fdf6ec] py-3 rounded-lg hover:bg-stone-400 hover:text-black"
+            disabled={loading}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
           {/* Signup Link */}

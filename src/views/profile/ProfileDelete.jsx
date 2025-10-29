@@ -3,26 +3,47 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { deleteUserProfile } from "@/services/userApi";
+import { toast } from "sonner";
 
 export const ProfileDelete = () => {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
-    console.log("Delete Profile:", form);
-    // logic ในการลบโปรไฟล์จริง ๆ
-    // เช่น: call API to delete the user account
-    // เมื่อลบสำเร็จแล้วให้ navigate ไปยังหน้า login หรือหน้าแรก
-    
-    const isSuccess = true; 
 
-    if (isSuccess) {
-        navigate("/account-deleted"); // link ไปยังหน้า AccountDeletedPage
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    );
+
+    if (!confirmDelete) return;
+
+    setLoading(true);
+
+    try {
+      // เรียก API เพื่อลบ account
+      const data = await deleteUserProfile();
+
+      if (data.error === false) {
+        toast.success("Account deleted successfully");
+        navigate("/account-deleted");
+      } else {
+        toast.error(data.message || "Failed to delete account");
+      }
+    } catch (error) {
+      console.error("Delete profile error:", error);
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to delete account. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,7 +53,8 @@ export const ProfileDelete = () => {
         DELETE PROFILE!!!
       </h2>
       <p className="text-sm text-stone-600 mb-4">
-        This process <span className="text-red-600 font-semibold">cannot be reversed</span>.
+        This process
+        <span className="text-red-600 font-semibold">cannot be reversed</span>.
         Please confirm your email and password again.
       </p>
 
@@ -71,14 +93,16 @@ export const ProfileDelete = () => {
             variant="outline"
             className="flex-1 w-full bg-black text-[#fdf6ec] hover:bg-stone-400"
             onClick={() => navigate(-1)} // navigate(-1) เพื่อกลับไปหน้าก่อนหน้า
+            disabled={loading}
           >
             Back
           </Button>
           <Button
             type="submit"
             className="flex-1 bg-red-600 text-[#fdf6ec] hover:bg-red-700"
+            disabled={loading}
           >
-            Delete
+            {loading ? "Deleting..." : "Delete"}
           </Button>
         </div>
       </form>

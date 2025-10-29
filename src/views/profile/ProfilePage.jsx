@@ -1,27 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { MyOrderStatus } from "./MyOrderStatus"; 
+import { MyOrderStatus } from "./MyOrderStatus";
 import { ProfilePrivacy } from "./ProfilePrivacy";
+import { getUserProfile } from "@/services/userApi";
+import { toast } from "sonner";
 
 export const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("info");
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Mock user data
-  const user = {
-    avatar: "/images/user-profile.png",
-    name: "Arm JS",
-    info: {
-      firstname: "Arm",
-      lastname: "JS",
-      email: "arm.js@gmail.com",
-      tel: "0812345678",
-      address: "88/88 Unboxian Rd, Bang Na Nuea, Bang Na, Bangkok 00000",
-    },
-  };
+  // Fetch user data จาก Backend
+  useEffect(() => {
+    const loadProfile = async () => {
+      setLoading(true);
+      try {
+        const data = await getUserProfile();
+
+        if (data.error === false) {
+          setUser(data.user);
+        } else {
+          toast.error("Failed to load profile");
+        }
+      } catch (error) {
+        console.error("Profile fetch error:", error);
+        toast.error("Failed to load profile. Please login again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProfile();
+  }, []);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen p-6 bg-[#fdf6ec] flex items-center justify-center text-black">
+        <p className="text-xl">Loading profile...</p>
+      </div>
+    );
+  }
+
+  // ถ้าไม่มี user data
+  if (!user) {
+    return (
+      <div className="min-h-screen p-6 bg-[#fdf6ec] flex items-center justify-center text-black">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold">Please login to view your profile</h2>
+          <Button asChild className="mt-4 bg-black text-[#fdf6ec]">
+            <Link to="/signin">Login</Link>
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const renderContent = () => {
     switch (activeTab) {
@@ -34,29 +71,29 @@ export const ProfilePage = () => {
                 <label className="text-sm font-medium text-stone-500">
                   FIRST NAME
                 </label>
-                <p className="text-base text-stone-800">{user.info.firstname}</p>
+                <p className="text-base text-stone-800">{user.firstName}</p>
               </div>
               <div className="flex flex-col">
                 <label className="text-sm font-medium text-stone-500">
                   LAST NAME
                 </label>
-                <p className="text-base text-stone-800">{user.info.lastname}</p>
+                <p className="text-base text-stone-800">{user.lastName}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
                 <label className="text-sm font-medium text-stone-500">
                   EMAIL
                 </label>
-                <p className="text-base text-gray-800">{user.info.email}</p>
+                <p className="text-base text-gray-800">{user.email}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
                 <label className="text-sm font-medium text-stone-500">TEL</label>
-                <p className="text-base text-gray-800">{user.info.tel}</p>
+                <p className="text-base text-gray-800">{user.phoneNumber}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
                 <label className="text-sm font-medium text-stone-500">
                   ADDRESS
                 </label>
-                <p className="text-base text-stone-800">{user.info.address}</p>
+                <p className="text-base text-stone-800">{user.shippingAddress|| "No address provided"}</p>
               </div>
             </div>
           </div>
@@ -81,7 +118,7 @@ export const ProfilePage = () => {
             <AvatarImage src={user.avatar} alt="User Avatar" />
             <AvatarFallback>Cool Profile</AvatarFallback>
           </Avatar>
-          <p className="text-lg font-semibold text-black">{user.name}</p>
+          <p className="text-lg font-semibold text-black">{user.firstname} {user.lastname}</p>
           <Button variant="ghost" className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
             ADD YOUR PIC
           </Button>

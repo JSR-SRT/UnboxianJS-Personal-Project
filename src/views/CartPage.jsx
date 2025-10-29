@@ -4,7 +4,7 @@ import { useCart } from "@/contexts/CartContext";
 
 export const CartPage = () => {
   const { cartItems, updateQty, removeFromCart } = useCart();
-  const grandTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
+  const grandTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
 
   return (
     <div className="min-h-screen bg-[#fdf6ec] rounded-xl shadow-lg text-black px-4 py-6 md:px-10 lg:px-20">

@@ -22,12 +22,12 @@ export const MyOrderStatus = () => {
             id: order.orderNumber,
             date: new Date(order.createdAt).toLocaleDateString(),
             status: order.status,
-            items: order.basketItems.map((item) => ({
+            items: order.cartItems.map((item) => ({
               id: item.productId,
               name: item.name,
               price: item.price,
-              qty: item.quantity,
-              image: item.mainImage,
+              quantity: item.quantity,
+              mainImage: item.mainImage,
             })),
             total: order.total,
           }));
@@ -98,14 +98,14 @@ export const MyOrderStatus = () => {
                     className="flex items-center gap-3 border-b pb-2 last:border-0"
                   >
                     <img
-                      src={item.image}
+                      src={item.mainImage}
                       alt={item.name}
                       className="w-14 h-14 object-contain rounded-lg"
                     />
                     <div className="flex-1">
                       <p className="text-sm font-medium text-black">
                         {item.name}{" "}
-                        <span className="text-stone-400">x {item.qty}</span>
+                        <span className="text-stone-400">x {item.quantity}</span>
                       </p>
                       <p className="text-xs text-stone-600">
                         ฿ {Number(item.price).toLocaleString()}
