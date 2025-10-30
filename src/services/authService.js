@@ -1,14 +1,14 @@
 import api from "./api";
 
 // Register
-export const signupUser = async ({ 
-  firstName, 
-  lastName, 
-  email, 
-  phoneNumber, 
-  username, 
-  password, 
-  shippingAddress 
+export const signupUser = async ({
+  firstName,
+  lastName,
+  email,
+  phoneNumber,
+  username,
+  password,
+  shippingAddress,
 }) => {
   const response = await api.post("/auth/register", {
     firstName,

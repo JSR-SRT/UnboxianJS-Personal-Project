@@ -31,8 +31,8 @@ export const OrderStatusTracker = ({ order }) => {
       </div>
 
       {/* Status Tracker */}
-      <div className="relative w-full overflow-x-auto mb-6">
-        <div className="flex min-w-[400px] md:min-w-0 justify-between items-center">
+      <div className="relative w-full overflow-x-auto mb-6 scrollbar-hide">
+        <div className="flex min-w-[450px] md:min-w-0 justify-between items-center">
           {steps.map((step, index) => {
             const isActive = index <= steps.indexOf(order.status);
             return (

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from "react";
 
 const CartContext = createContext();
 
@@ -22,7 +22,13 @@ export const CartProvider = ({ children }) => {
     setCartItems((prev) =>
       prev.map((item) =>
         item._id === id
-          ? { ...item, qty: action === 'increase' ? item.qty + 1 : Math.max(item.qty - 1, 1) }
+          ? {
+              ...item,
+              qty:
+                action === "increase"
+                  ? item.qty + 1
+                  : Math.max(item.qty - 1, 1),
+            }
           : item
       )
     );
@@ -32,10 +38,24 @@ export const CartProvider = ({ children }) => {
     setCartItems((prev) => prev.filter((item) => item._id !== id));
   };
 
-   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  // Clear สินค้าทั้งหมดในตะกร้าหลังจาก Checkout
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, updateQty, removeFromCart, totalItems }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        updateQty,
+        removeFromCart,
+        totalItems,
+        clearCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

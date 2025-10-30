@@ -51,7 +51,9 @@ export const ProfilePage = () => {
     return (
       <div className="min-h-screen p-6 bg-[#fdf6ec] flex items-center justify-center text-black">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold">Please login to view your profile</h2>
+          <h2 className="text-2xl font-semibold">
+            Please login to view your profile
+          </h2>
           <Button asChild className="mt-4 bg-black text-[#fdf6ec]">
             <Link to="/signin">Login</Link>
           </Button>
@@ -86,14 +88,18 @@ export const ProfilePage = () => {
                 <p className="text-base text-gray-800">{user.email}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
-                <label className="text-sm font-medium text-stone-500">TEL</label>
+                <label className="text-sm font-medium text-stone-500">
+                  TEL
+                </label>
                 <p className="text-base text-gray-800">{user.phoneNumber}</p>
               </div>
               <div className="flex flex-col md:col-span-2">
                 <label className="text-sm font-medium text-stone-500">
                   ADDRESS
                 </label>
-                <p className="text-base text-stone-800">{user.shippingAddress|| "No address provided"}</p>
+                <p className="text-base text-stone-800">
+                  {user.shippingAddress || "No address provided"}
+                </p>
               </div>
             </div>
           </div>
@@ -118,8 +124,13 @@ export const ProfilePage = () => {
             <AvatarImage src={user.avatar} alt="User Avatar" />
             <AvatarFallback>Cool Profile</AvatarFallback>
           </Avatar>
-          <p className="text-lg font-semibold text-black">{user.firstname} {user.lastname}</p>
-          <Button variant="ghost" className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black">
+          <p className="text-lg font-semibold text-black">
+            {user.firstname} {user.lastname}
+          </p>
+          <Button
+            variant="ghost"
+            className="mt-4 w-full sm:w-auto hover:bg-black hover:text-[#fdf6ec] bg-stone-400 text-black"
+          >
             ADD YOUR PIC
           </Button>
         </div>

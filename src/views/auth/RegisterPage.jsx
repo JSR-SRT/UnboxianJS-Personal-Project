@@ -26,7 +26,7 @@ export const RegisterPage = () => {
     });
   };
 
-  // ✅ เพิ่ม password validation function
+  // เพิ่ม password validation function
   const validatePassword = (password) => {
     if (password.length < 8) {
       return "Password must be at least 8 characters long";
@@ -46,8 +46,8 @@ export const RegisterPage = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // ✅ Validate password
+
+    // Validate password
     const passwordError = validatePassword(formData.password);
     if (passwordError) {
       toast.error(passwordError);
@@ -81,7 +81,10 @@ export const RegisterPage = () => {
       }
     } catch (error) {
       console.error("Registration error:", error);
-      toast.error(error.response?.data?.message || "Registration failed. Please try again.");
+      toast.error(
+        error.response?.data?.message ||
+          "Registration failed. Please try again."
+      );
     } finally {
       setLoading(false); // หยุด loading
     }

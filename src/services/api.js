@@ -6,6 +6,9 @@ const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3030";
 const api = axios.create({
   baseURL,
   withCredentials: true, // critical for sending cookies!
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // Interceptor สำหรับจัดการ errors
@@ -13,8 +16,7 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired หรือไม่ valid
-      console.error("Unauthorized. Please login again.");
+      console.error("Unauthorized:", error.config.url);
     }
     return Promise.reject(error);
   }

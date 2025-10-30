@@ -33,7 +33,7 @@ export const ProductDetails = () => {
         <Card className="w-full max-w-lg mb-4 rounded-xl bg-black border-black">
           <CardContent className="p-4 flex items-center justify-center bg-black">
             {/* Main + Gallery Scroll */}
-            <div className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide bg-black border-black">
+            <div className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-4 bg-black border-black">
               {[product.mainImage, ...(product.gallery || [])].map(
                 (image, index) => (
                   <img

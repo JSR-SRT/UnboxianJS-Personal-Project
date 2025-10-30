@@ -22,7 +22,7 @@ export const ProfileUpdate = () => {
     const loadProfile = async () => {
       try {
         const data = await getUserProfile();
-        
+
         if (data.error === false) {
           setForm({
             firstName: data.user.firstName || "",
@@ -40,7 +40,6 @@ export const ProfileUpdate = () => {
 
     loadProfile();
   }, []);
-
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -67,7 +66,10 @@ export const ProfileUpdate = () => {
       }
     } catch (error) {
       console.error("Update profile error:", error);
-      toast.error(error.response?.data?.message || "Failed to update profile. Please try again.");
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to update profile. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -78,19 +80,6 @@ export const ProfileUpdate = () => {
       <h2 className="text-lg md:text-xl font-bold mb-4 text-black">
         Change Your Info
       </h2>
-
-      {/* แสดงข้อความยืนยันเมื่อ update สำเร็จ
-      {status && (
-        <div
-          className={`p-3 mb-4 rounded-lg text-sm font-medium ${
-            status.type === "success"
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {status.message}
-        </div>
-      )} */}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name */}

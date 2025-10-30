@@ -7,8 +7,8 @@ import { Card } from "@/components/ui/card";
 
 export const ContactPage = () => {
     const [form, setForm] = useState({ //state สำหรับ form
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         email: "",
         message: "",
     });
@@ -22,7 +22,7 @@ export const ContactPage = () => {
         e.preventDefault();
         console.log("Form Submitted:", form);
 
-        // ในอนาคต จะมีการเรียก API เพื่อส่งข้อมูลไป Backend
+        // ในอนาคต อาจจะมีการเรียก API เพื่อส่งข้อมูลไป Backend
         // เมื่อ API Call สำเร็จ
         navigate('/contact/thank-you'); // เมื่อส่งข้อมูลสำเร็จ ให้ navigate ไปที่หน้า Thank You
     };
@@ -35,17 +35,17 @@ export const ContactPage = () => {
                 {/* เพิ่ม name, value, onChange ให้กับ input แต่ละอัน */}
                 <input 
                     type="text" 
-                    name="firstname"
-                    placeholder="Firstname" 
-                    value={form.firstname}
+                    name="firstName"
+                    placeholder="FirstName" 
+                    value={form.firstName}
                     onChange={handleChange}
                     className="w-full p-3 border rounded-lg" 
                 />
                 <input 
                     type="text" 
                     name="lastname"
-                    placeholder="Lastname" 
-                    value={form.lastname}
+                    placeholder="LastName" 
+                    value={form.lastName}
                     onChange={handleChange}
                     className="w-full p-3 border rounded-lg" 
                 />

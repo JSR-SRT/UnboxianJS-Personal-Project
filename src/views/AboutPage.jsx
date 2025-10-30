@@ -1,9 +1,11 @@
 export const AboutPage = () => {
   return (
-    <section className="relative z-10 bg-center bg-cover min-h-screen w-full" >
+    <section className="relative z-10 bg-center bg-cover min-h-screen w-full">
       <h2 className="text-5xl font-bold mb-6 text-center">About Us</h2>
       <p className="text-stone-700 max-w-2xl mx-auto text-lg text-left z-10 relative">
-        <br></br><br></br><strong>UnboxianJS</strong> isn’t just about toys — it’s about culture.
+        <br></br>
+        <br></br>
+        <strong>UnboxianJS</strong> isn’t just about toys — it’s about culture.
         <br></br>We stand at the crossroads of street-inspired design, popular
         icons, modern aesthetics, cute vibes, and exceptional art toys that
         break boundaries.<br></br> <br></br>Every piece in our collection is
@@ -31,8 +33,8 @@ export const AboutPage = () => {
       <div
         className="absolute inset-0 -z-10 opacity-10"
         style={{
-          backgroundImage: 
-          "url(/images/0-bg-bearbrick-about.png), url(/images/0-bg-labubu-about.png)",
+          backgroundImage:
+            "url(/images/0-bg-bearbrick-about.png), url(/images/0-bg-labubu-about.png)",
           backgroundPosition: "left center, right center",
           backgroundSize: "50%, 50%",
           backgroundRepeat: "no-repeat",
