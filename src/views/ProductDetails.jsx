@@ -1,4 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +9,24 @@ export const ProductDetails = () => {
   const location = useLocation();
   const { product } = location.state || {};
   const { addToCart } = useCart();
+  const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = product ? [product.mainImage, ...(product.gallery || [])] : [];
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollPosition = container.scrollLeft;
+      const itemWidth = container.offsetWidth;
+      const index = Math.round(scrollPosition / itemWidth);
+      setCurrentIndex(index);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!product) {
     return (
@@ -29,23 +48,38 @@ export const ProductDetails = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center p-4 lg:p-10 min-h-screen">
       {/* Product Image Gallery */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center mb-8 lg:mb-0 bg-black">
-        <Card className="w-full max-w-lg mb-4 rounded-xl bg-black border-black">
-          <CardContent className="p-4 flex items-center justify-center bg-black">
+      <div className="w-full lg:w-1/2 flex flex-col items-center mb-8 lg:mb-0 bg-[#fdf6ec]">
+        <Card className="w-full max-w-lg mb-4 rounded-xl bg-[#fdf6ec] border-[#fdf6ec] relative">
+          <CardContent className="p-4 flex items-center justify-center bg-[#fdf6ec]">
             {/* Main + Gallery Scroll */}
-            <div className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-4 bg-black border-black">
-              {[product.mainImage, ...(product.gallery || [])].map(
-                (image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${product.name} ${index}`}
-                    className="w-full h-auto object-contain max-h-96 flex-shrink-0 snap-center"
-                  />
-                )
-              )}
+            <div
+              ref={scrollContainerRef}
+              className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-4 bg-[#fdf6ec] border-[#fdf6ec] scrollbar-hide"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${product.name} ${index}`}
+                  className="w-full h-auto object-contain max-h-96 flex-shrink-0 snap-center"
+                />
+              ))}
             </div>
           </CardContent>
+          {/* Scroll Indicators */}
+          {images.length > 1 && (
+            <div className="absolute top-4 left-0 right-0 flex justify-center gap-1.5 z-10">
+              {images.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-0.5 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "w-8 bg-black" : "w-8 bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </Card>
       </div>
 

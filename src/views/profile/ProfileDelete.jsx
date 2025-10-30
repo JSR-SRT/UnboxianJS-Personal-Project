@@ -54,7 +54,7 @@ export const ProfileDelete = () => {
       </h2>
       <p className="text-sm text-stone-600 mb-4">
         This process
-        <span className="text-red-600 font-semibold">cannot be reversed</span>.
+        <span className="text-red-600 font-semibold"> cannot be reversed</span>.
         Please confirm your email and password again.
       </p>
 

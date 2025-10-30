@@ -135,7 +135,7 @@ const Navbar = () => {
                 <FaUser />
               </NavLink>
 
-              {isHomePage && !isAuthenticated ? (
+              {!isAuthenticated ? (
                 <Link
                   to="/signin"
                   className="px-4 py-2 rounded-lg bg-black text-[#fdf6ec] hover:text-black hover:bg-stone-400"
@@ -219,7 +219,7 @@ const Navbar = () => {
             Contact
           </NavLink>
 
-          {isHomePage && !isAuthenticated ? (
+          {!isAuthenticated ? (
             <Link
               to="/signin"
               onClick={handleLinkClick}

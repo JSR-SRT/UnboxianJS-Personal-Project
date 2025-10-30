@@ -9,13 +9,16 @@ const Layout = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className={`flex flex-col min-h-screen ${isHomePage ? 'bg-[#fdf6ec]' : 'bg-[#fdf6ea]'}`}>
+    <div
+      className={`flex flex-col min-h-screen ${
+        isHomePage ? "bg-[#fdf6ec]" : "bg-[#fdf6ea]"
+      }`}
+    >
       {/* Navbar ด้านบน */}
       <Navbar />
 
       {/* ทำให้ทุกครั้งที่เปลี่ยนหน้า Scroll กลับขึ้นบนสุด */}
       <ScrollToTop />
-
 
       {/* Main content */}
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -26,7 +29,24 @@ const Layout = () => {
       <Footer />
 
       {/* Global Toaster (แจ้งเตือน) */}
-      <Toaster richColors position="top-right" />
+      <Toaster
+        position="top-right"
+        richColors
+        toastOptions={{
+          success: {
+            style: {
+              background: "#fdf6ec",
+              color: "black",
+            },
+          },
+          error: {
+            style: {
+              background: "#DC2626",
+              color: "#fdf6ec",
+            },
+          },
+        }}
+      />
     </div>
   );
 };
