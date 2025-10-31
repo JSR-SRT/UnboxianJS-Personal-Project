@@ -43,7 +43,7 @@ export const ContactPage = () => {
                 />
                 <input 
                     type="text" 
-                    name="lastname"
+                    name="lastName"
                     placeholder="LastName" 
                     value={form.lastName}
                     onChange={handleChange}
